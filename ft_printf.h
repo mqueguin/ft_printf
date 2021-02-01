@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 17:45:26 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:08:17 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ t_data	ft_is_star(t_data data, va_list args);
 int		ft_is_dot(char *str, int i, t_data data, va_list args);
 t_data	ft_is_number(char c, t_data data);
 
-void	ft_treat_char(int c, t_data data);
+void	ft_treat_char(int c, t_data *data);
 
-void	ft_treat_width(t_data data, int minus);
+void	ft_treat_width(t_data *data, int minus);
+
+/** Fonction debug **/
+void	printf_struct(t_data data);
 
 #endif

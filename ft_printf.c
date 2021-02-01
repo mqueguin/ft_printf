@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 17:47:17 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:24:27 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	ft_reset_flags(t_data *data)
 void	ft_exec_flags(t_data *data, va_list args)
 {
 	if (data->type == 'c')
-		ft_treat_char(va_arg(args, int), *data);
+		ft_treat_char(va_arg(args, int), data);
 }
 
 int		ft_parser(char *str, int i, t_data *data, va_list args)
 {
 	while (str[++i])
 	{
-		if (!ft_check_flags(str[i]) || !ft_check_type(str[i])
-				|| !ft_isdigit(str[i]))
+		if (!ft_check_flags(str[i]) && !ft_check_type(str[i])
+				&& !ft_isdigit(str[i]))
 			break ;
 		if (str[i] == '0' && data->minus == 0 && data->width == 0)
 			data->zero = 1;
@@ -63,6 +63,7 @@ int		ft_printf(const char *format, ...)
 	int		i;
 
 	data.index = 0;
+	len = 0;
 	i = -1;
 	str = ft_strdup(format);
 	ft_bzero(data.buffer, 1024);
@@ -82,7 +83,9 @@ int		ft_printf(const char *format, ...)
 			data.buffer[data.index++] = str[i];
 	}
 	va_end(args);
+	data.buffer[data.index] = '\0';
 	len += (int)ft_strlen(data.buffer);
 	write(1, data.buffer, (int)ft_strlen(data.buffer));
+	printf("valeur de retour de len : %d\n", len);
 	return (len);
 }

@@ -3,7 +3,7 @@
 
 int		main(void)
 {
-	char c = 2147483647;
+	char c = 'm';
 	char *str = "Hello World !";
 	char	*test = NULL;
 	printf("------------------ %%c -----------------\n\n");
