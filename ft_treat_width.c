@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:48:29 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 18:10:01 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:56:47 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_treat_width(t_data *data, int minus)
 {
+	//data->index++;
 	while (data->width - minus > 0)
 	{
 		if (data->zero == 1)

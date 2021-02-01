@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 18:24:27 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 21:03:26 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ft_reset_flags(t_data *data)
 	data->type = 0;
 }
 
-void	ft_exec_flags(t_data *data, va_list args)
+void	ft_exec_flags(char type, t_data *data, va_list args)
 {
-	if (data->type == 'c')
+	if (type == 'c')
 		ft_treat_char(va_arg(args, int), data);
 }
 
@@ -71,21 +71,34 @@ int		ft_printf(const char *format, ...)
 	while (str[++i])
 	{
 		if ((int)ft_strlen(data.buffer) >= 1024)
+		{
+			printf("Supérieur a 1024\n");
 			len += ft_check_buffer(&data);
+		}
 		ft_reset_flags(&data);
-		if (str[i] == '%' && str[i + 1])
+		if (!str)
+			break ;
+		else if (str[i] == '%' && str[i + 1])
 		{
 			i = ft_parser(str, i, &data, args);
 			if (ft_check_type(str[i]))
-				ft_exec_flags(&data, args);
+			{
+				//printf("data.index : %d\n", data.index);
+				ft_exec_flags((char)data.type, &data, args);
+				//printf_struct(data);
+				//printf("str[i] : %c\n", str[i]);
+			}
+			else if (str[i])
+				data.buffer[data.index++] = str[i];
 		}
 		else if (str[i] != '%' && str[i])
 			data.buffer[data.index++] = str[i];
 	}
 	va_end(args);
-	data.buffer[data.index] = '\0';
-	len += (int)ft_strlen(data.buffer);
+	//data.buffer[data.index] = '\0';
+	len += data.index;
 	write(1, data.buffer, (int)ft_strlen(data.buffer));
-	printf("valeur de retour de len : %d\n", len);
+	free((char*)str);
+	printf("len : %d\n", len);
 	return (len);
 }

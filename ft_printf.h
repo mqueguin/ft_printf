@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 18:08:17 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:23:55 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_data
 
 int		ft_printf(const char *format, ...);
 int		ft_parser(char *str, int i, t_data *data, va_list args);
-void	ft_exec_flags(t_data *data, va_list args);
+void	ft_exec_flags(char type, t_data *data, va_list args);
 
 int		ft_check_buffer(t_data *data);
 int		ft_check_flags(char c);
@@ -45,7 +45,7 @@ t_data	ft_is_star(t_data data, va_list args);
 int		ft_is_dot(char *str, int i, t_data data, va_list args);
 t_data	ft_is_number(char c, t_data data);
 
-void	ft_treat_char(int c, t_data *data);
+void	ft_treat_char(char c, t_data *data);
 
 void	ft_treat_width(t_data *data, int minus);
 

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 15:42:28 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:52:43 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_data	ft_is_star(t_data data, va_list args)
 	{
 		data.minus = 1;
 		data.width *= -1;
+		data.zero = 0;
 	}
 	return (data);
 }
