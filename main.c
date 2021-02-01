@@ -8,9 +8,9 @@ int		main(void)
 	char	*test = NULL;
 	printf("------------------ %%c -----------------\n\n");
 	ft_printf("Test ft_printf\n");
-	/*printf("Vrai : |%c|\n", c);
+	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
-	printf("Vrai : |%15c|\n", c);
+	/*printf("Vrai : |%15c|\n", c);
 	ft_printf("|%15c|\n", c);
 	printf("Vrai : |%-15c|\n", c);
 	ft_printf("|%-15c|\n", c);

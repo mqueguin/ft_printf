@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 16:02:47 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:45:26 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		ft_check_flags(char c);
 int		ft_check_type(char c);
 
 t_data	ft_is_minus(t_data data);
+void	ft_reset_flags(t_data *data);
 t_data	ft_is_star(t_data data, va_list args);
 int		ft_is_dot(char *str, int i, t_data data, va_list args);
 t_data	ft_is_number(char c, t_data data);

@@ -6,23 +6,20 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 16:15:01 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:47:17 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_data	ft_reset_flags(void)
+void	ft_reset_flags(t_data *data)
 {
-	t_data	data;
-
-	data.minus = 0;
-	data.star = 0;
-	data.zero = 0;
-	data.dot = 0;
-	data.width = 0;
-	data.type = 0;
-	return (data);
+	data->minus = 0;
+	data->star = 0;
+	data->zero = 0;
+	data->dot = 0;
+	data->width = 0;
+	data->type = 0;
 }
 
 void	ft_exec_flags(t_data *data, va_list args)
@@ -74,7 +71,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if ((int)ft_strlen(data.buffer) >= 1024)
 			len += ft_check_buffer(&data);
-		data = ft_reset_flags();
+		ft_reset_flags(&data);
 		if (str[i] == '%' && str[i + 1])
 		{
 			i = ft_parser(str, i, &data, args);
