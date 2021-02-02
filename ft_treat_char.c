@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:42:35 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 15:32:13 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/02 19:26:28 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,19 @@ void	ft_treat_char(char c, t_data *data)
 {
 	char	*str;
 	unsigned int		len;
+	char	*space;
 
 //	printf_struct(*data);
+	str = NULL;
 	str = ft_c_to_str(c);
+	data->len_variable = 1;
+	space = ft_treat_width(data);
 	len = 0;
 	if (data->minus == 1)
-	{
-		ft_strncat(data->buffer, str, 1);
-		data->index++;
-		data->ret_len++;
-	}
-	if (data->width > 0)
-		len = data->width - 1;
-	data->ret_len += len;
-	while (len > 0)
-	{
-		if (data->zero == 0)
-			ft_strncat(data->buffer, " ", len);
-		else if (data->zero == 1)
-			ft_strncat(data->buffer, "0", len);
-		data->index += len;
-		len--;
-	}
+		ft_add_to_buffer(data, str, data->len_variable);
+	ft_add_to_buffer(data, space, data->len_space);
 	if (data->minus == 0)
-	{
-		ft_strncat(data->buffer, str, 1);
-		data->index++;
-		data->ret_len++;
-	}
+		ft_add_to_buffer(data, str, data->len_variable);
+	free(str);
+	free(space);
 }

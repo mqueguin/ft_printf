@@ -7,13 +7,13 @@ int		main(void)
 	char *str = "Hello World !";
 	char	*test = NULL;
 	printf("------------------ %%c -----------------\n\n");
-	ft_printf("Test ft_printf\n");
+	/*ft_printf("Test ft_printf\n");
 	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
-	/*printf("\nVrai : |%c|\n", c);
+	printf("\nVrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
 	printf("|%-----5c|\n", -2147483648);
-	ft_printf("|%-----5c|\n", -2147483648);*/
+	ft_printf("|%-----5c|\n", -2147483648);
 	printf("Vrai : |%15c|\n", c);
 	ft_printf("|%15c|\n", c);
 	printf("Vrai : |%-15c|\n", c);
@@ -43,7 +43,7 @@ int		main(void)
 	printf("Vrai : |%12c| |%4c|\n", c, c);
 	ft_printf("|%12c| |%4c|\n", c, c);
 	printf("Vrai |%-15c|\n", 0);
-	ft_printf("|%-15c|\n", 0);
+	ft_printf("|%-15c|\n", 0);*/
 	printf("|%0*c|\n", -15, -2147483648);
 	ft_printf("|%0*c|\n", -15, -2147483648);
 	/*printf("\n---------------- %%s -----------------\n\n");

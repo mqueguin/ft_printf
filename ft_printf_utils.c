@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 14:54:24 by mdupuis          ###   ########.fr       */
+/*   Updated: 2021/02/02 17:54:48 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,20 @@ void			ft_display_buffer(t_data *data)
 	data->index = 0;
 }
 
-void			ft_add_buffer()
+void			ft_add_to_buffer(t_data *data, char *str, int len)
 {
+	int		i;
 
+	i = 0;
+	while (i < len)
+	{
+		data->buffer[data->index] = str[i];
+		data->index++;
+		if (data->index == 1024)
+			ft_display_buffer(data);
+		i++;
+	}
+	data->ret_len += len;
 }
 
 void			ft_noflags_buffer(t_data *data, char *str)

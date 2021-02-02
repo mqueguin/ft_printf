@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 15:25:24 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:28:25 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_reset_flags(t_data *data)
 	data->dot = 0;
 	data->width = 0;
 	data->type = 0;
+	data->len_variable = 0;
+	data->len_space = 0;
 }
 
 void	ft_exec_flags(char type, t_data *data, va_list args)
