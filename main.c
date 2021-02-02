@@ -42,6 +42,10 @@ int		main(void)
 	ft_printf("|%.c|\n", c);
 	printf("Vrai : |%12c| |%4c|\n", c, c);
 	ft_printf("|%12c| |%4c|\n", c, c);
+	printf("Vrai |%-15c|\n", 0);
+	ft_printf("|%-15c|\n", 0);
+	printf("|%0*c|\n", -15, -2147483648);
+	ft_printf("|%0*c|\n", -15, -2147483648);
 	/*printf("\n---------------- %%s -----------------\n\n");
 	printf("test vrai printf %%s sans flags : |%s|\n", str);
 	ft_printf("Test %%s sans flags : |%s|\n", str);

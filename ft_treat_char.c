@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:42:35 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 14:52:40 by mdupuis          ###   ########.fr       */
+/*   Updated: 2021/02/02 15:32:13 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_treat_char(char c, t_data *data)
 	{
 		ft_strncat(data->buffer, str, 1);
 		data->index++;
+		data->ret_len++;
 	}
 	if (data->width > 0)
 		len = data->width - 1;
@@ -41,6 +42,6 @@ void	ft_treat_char(char c, t_data *data)
 	{
 		ft_strncat(data->buffer, str, 1);
 		data->index++;
+		data->ret_len++;
 	}
-	data->ret_len++;
 }
