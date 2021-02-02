@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 19:23:55 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/02 14:54:29 by mdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ typedef struct	s_data
 	int			width;
 	int			index;
 	int			type;
+	int			i;
+	int			ret_len;
 	char		buffer[1024];
 }				t_data;
 
 int		ft_printf(const char *format, ...);
-int		ft_parser(char *str, int i, t_data *data, va_list args);
+int		ft_parser(char *str, t_data *data, va_list args);
 void	ft_exec_flags(char type, t_data *data, va_list args);
 
 int		ft_check_buffer(t_data *data);
@@ -42,12 +44,16 @@ int		ft_check_type(char c);
 t_data	ft_is_minus(t_data data);
 void	ft_reset_flags(t_data *data);
 t_data	ft_is_star(t_data data, va_list args);
-int		ft_is_dot(char *str, int i, t_data data, va_list args);
+int		ft_is_dot(char *str, t_data data, va_list args);
 t_data	ft_is_number(char c, t_data data);
 
 void	ft_treat_char(char c, t_data *data);
-
 void	ft_treat_width(t_data *data, int minus);
+
+void	ft_display_buffer(t_data *data);
+void	ft_noflags_buffer(t_data *data, char *str);
+char	*ft_c_to_str(char c);
+char	*ft_strncat(char *dest, char *src, unsigned int n);
 
 /** Fonction debug **/
 void	printf_struct(t_data data);

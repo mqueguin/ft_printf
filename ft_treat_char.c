@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:42:35 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/01 21:02:54 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/02 14:52:40 by mdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,33 @@
 
 void	ft_treat_char(char c, t_data *data)
 {
-	//printf_struct(*data);
-	//printf("valeur de c : %c\n", c);
-	if (c == '\0')
-	{
-		data->index++;
-		ft_treat_width(data, 1);
-		return ;
-	}
+	char	*str;
+	unsigned int		len;
+
+//	printf_struct(*data);
+	str = ft_c_to_str(c);
+	len = 0;
 	if (data->minus == 1)
-		data->buffer[data->index++] = c;
-	ft_treat_width(data, 1);
+	{
+		ft_strncat(data->buffer, str, 1);
+		data->index++;
+	}
+	if (data->width > 0)
+		len = data->width - 1;
+	data->ret_len += len;
+	while (len > 0)
+	{
+		if (data->zero == 0)
+			ft_strncat(data->buffer, " ", len);
+		else if (data->zero == 1)
+			ft_strncat(data->buffer, "0", len);
+		data->index += len;
+		len--;
+	}
 	if (data->minus == 0)
-		data->buffer[data->index++] = c;
-	data->buffer[data->index] = '\0';
-	//printf("valeur de data.index : %d\n", data.index);
+	{
+		ft_strncat(data->buffer, str, 1);
+		data->index++;
+	}
+	data->ret_len++;
 }
