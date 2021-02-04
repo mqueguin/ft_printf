@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:48:29 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 19:26:41 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/04 14:01:05 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_treat_width(t_data *data)
 	int		i;
 
 	i = 0;
+	if (data->dot > 0 && data->type == 's')
+		data->len_variable = data->dot;
 	if (data->width < data->len_variable)
 		return (NULL);
 	if (!(space = ft_calloc((data->width - data->len_variable + 1), sizeof(char))))

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 11:52:12 by mdupuis          ###   ########.fr       */
+/*   Updated: 2021/02/04 12:33:22 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,19 @@ t_data	ft_is_star(t_data data, va_list args)
 	return (data);
 }
 
-int		ft_is_dot(char *str, t_data data, va_list args)
+t_data	ft_is_dot(char *str, t_data *data, va_list args)
 {
-	data.i++;
-	if (str[data.i] == '*')
+	data->b_dot = 1;
+	data->i++;
+	if (str[data->i] == '*')
 	{
-		data.dot = va_arg(args, int);
-		data.star = 1;
+		data->dot = va_arg(args, int);
+		data->star = 1;
 	}
 	else
-		while (ft_isdigit(str[data.i]))
-			data.dot = (data.dot * 10) + ((int)str[data.i++] - 48);
-	return (data.i);
+		while (ft_isdigit(str[data->i]))
+			data->dot = (data->dot * 10) + ((int)str[data->i++] - 48);
+	return (*data);
 }
 
 t_data	ft_is_number(char c, t_data data)

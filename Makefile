@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/02 14:46:35 by mdupuis          ###   ########.fr        #
+#    Updated: 2021/02/04 12:00:38 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ LIBFT_H		= 	-I libft/libft.h
 
 SRCS	 	=	ft_printf.c\
 				ft_treat_char.c\
+				ft_treat_string.c\
 				ft_printf_utils.c\
 				ft_printf_debug.c\
 				ft_treat_width.c\

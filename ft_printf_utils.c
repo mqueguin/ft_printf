@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/02 17:54:48 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/04 13:57:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			ft_display_buffer(t_data *data)
 void			ft_add_to_buffer(t_data *data, char *str, int len)
 {
 	int		i;
-
+	
 	i = 0;
 	while (i < len)
 	{
