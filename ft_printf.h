@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/04 12:32:23 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/05 11:32:35 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_data
 	int			len_variable;
 	int			len_space;
 	int			b_dot;
+	int			len_fill;
 	char		buffer[1024];
 }				t_data;
 
@@ -54,6 +55,10 @@ void	ft_treat_char(char c, t_data *data);
 char	*ft_treat_width(t_data *data);
 
 void	ft_treat_string(char *str, t_data *data);
+
+void	ft_treat_pointer(unsigned long long, t_data *data);
+char	*ft_itoa_base_ull(unsigned long long);
+int		ft_get_len(unsigned long long);
 
 void	ft_display_buffer(t_data *data);
 void	ft_add_to_buffer(t_data *data, char *str, int len);

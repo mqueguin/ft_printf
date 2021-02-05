@@ -6,7 +6,7 @@ int		main(void)
 	char c = 'm';
 	char *str = "Hello World !";
 	char	*test = NULL;
-	ft_printf("\n-------------- %% --------------\n\n");
+/*	ft_printf("\n-------------- %% --------------\n\n");
 	printf("test vrai printf %% avec width de 15 : %15%\n");
 	ft_printf("test %% avec width de 15 : %15%\n");
 	printf("test vrai printf %% avec width de 15 et 0 : %015%\n");
@@ -87,5 +87,21 @@ int		main(void)
 	ft_printf("test %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	printf("Vrai : |%s|\n", "Coco Toto");
 	ft_printf("|%s|\n", "Coco Toto");*/
+	ft_printf("\n-------------- %%p ------------\n\n");
+	ft_printf("test %%p : %p\n", &str);
+	printf("test vrai printf %%p : %p\n", &str);
+	ft_printf("test %%p avec width de 16 : %16p\n", &str);
+	printf("test vrai printf %%p avec width de 16 : %16p\n", &str);
+	ft_printf("test %%p avec width de 8 : %8p\n", &str);
+	printf("test vrai printf %%p avec width de 8 : %8p\n", &str);
+	ft_printf("test %%p avec * et width de 22 : %*p\n", 22, &str);
+	printf("test vrai printf %%p avec * et width de 22 : %*p\n", 22, &str);
+	printf("Vrai precision 22.4: |%22.4p|\n", &str);
+	ft_printf("Vrai precision 22.4: |%22.4p|\n", &str);
+	printf("Vrai precision 22.0: |%22.0p|\n", &str);
+	ft_printf("Vrai precision 22.0: |%22.0p|\n", &str);
+	printf("Vrai precision 22.20: |%22.20p|\n", &str);
+	ft_printf("Vrai precision 22.20: |%22.20p|\n", &str);
+	//printf("test vrai printf %%p |%*.*p|\n", &str);
 	return 0;
 }

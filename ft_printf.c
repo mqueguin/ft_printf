@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 09:46:00 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/05 11:32:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_reset_flags(t_data *data)
 	data->len_variable = 0;
 	data->len_space = 0;
 	data->b_dot = 0;
+	data->len_fill = 0;
 }
 
 void	ft_exec_flags(char type, t_data *data, va_list args)
@@ -33,6 +34,8 @@ void	ft_exec_flags(char type, t_data *data, va_list args)
 		ft_treat_string(va_arg(args, char*), data);
 	if (type == '%')
 		ft_treat_char('%', data);
+	if (type == 'p')
+		ft_treat_pointer(va_arg(args, unsigned long long), data);
 }
 
 int		ft_parser(char *str, t_data *data, va_list args)
