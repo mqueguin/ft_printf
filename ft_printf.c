@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/04 12:32:56 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/05 09:46:00 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_exec_flags(char type, t_data *data, va_list args)
 		ft_treat_char(va_arg(args, int), data);
 	if (type == 's')
 		ft_treat_string(va_arg(args, char*), data);
+	if (type == '%')
+		ft_treat_char('%', data);
 }
 
 int		ft_parser(char *str, t_data *data, va_list args)

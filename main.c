@@ -6,8 +6,13 @@ int		main(void)
 	char c = 'm';
 	char *str = "Hello World !";
 	char	*test = NULL;
+	ft_printf("\n-------------- %% --------------\n\n");
+	printf("test vrai printf %% avec width de 15 : %15%\n");
+	ft_printf("test %% avec width de 15 : %15%\n");
+	printf("test vrai printf %% avec width de 15 et 0 : %015%\n");
+	ft_printf("test %% avec width de 15 et 0 : %015%\n");
+	ft_printf("Test ft_printf\n");
 	printf("------------------ %%c -----------------\n\n");
-	/*ft_printf("Test ft_printf\n");
 	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
 	printf("\nVrai : |%c|\n", c);
@@ -45,8 +50,8 @@ int		main(void)
 	printf("Vrai |%-15c|\n", 0);
 	ft_printf("|%-15c|\n", 0);
 	printf("|%0*c|\n", -15, -2147483648);
-	ft_printf("|%0*c|\n", -15, -2147483648);*/
-	printf("\n---------------- %%s -----------------\n\n");
+	ft_printf("|%0*c|\n", -15, -2147483648);
+/*	printf("\n---------------- %%s -----------------\n\n");
 	printf("test vrai printf %%s sans flags : |%s|\n", str);
 	ft_printf("Test %%s sans flags : |%s|\n", str);
 	printf("Test vrai printf %%s avec width de 1 : |%1s|\n", str);
@@ -81,6 +86,6 @@ int		main(void)
 	printf("test vrai printf %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	ft_printf("test %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	printf("Vrai : |%s|\n", "Coco Toto");
-	ft_printf("|%s|\n", "Coco Toto");
+	ft_printf("|%s|\n", "Coco Toto");*/
 	return 0;
 }
