@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 12:14:34 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:36:45 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_get_len(unsigned long long nbr)
 
 	len = 0;
 	if (nbr == 0)
-		return (1);
+		return (0);
 	while (nbr)
 	{
 		len++;
@@ -32,12 +32,13 @@ char	*ft_itoa_base_ull(unsigned long long nbr)
 	char	*hexa;
 	int		len;
 	char	*ret;
-
+	
 	len = ft_get_len(nbr);
 	hexa = "0123456789abcdef";
 	if (!(ret = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	ret[len--] = '\0';
+	ret[len] = '\0';
+	len--;
 	if (nbr == 0)
 		ret[0] = '0';
 	while (nbr != 0)
@@ -78,7 +79,7 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 	char	*str;
 	char	*space;
 	char	*fill;
-
+		
 	fill = NULL;
 	str = ft_itoa_base_ull(nbr);
 	data->len_variable = ((int)ft_strlen(str) + 2);
