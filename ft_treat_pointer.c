@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 12:38:06 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 12:49:52 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, "0x", 2);
+		if (data->zero == 1)
+			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
@@ -103,6 +105,8 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 	if (data->minus == 0)
 	{
 		ft_add_to_buffer(data, "0x", 2);
+		if (data->zero == 1)
+			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
