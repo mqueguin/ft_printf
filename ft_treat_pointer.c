@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 15:46:43 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 18:31:37 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_add_fill(t_data *data)
 	else
 		return (NULL);
 }
-
+//            FONCTION DE MERDE........
 void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 {
 	char	*str;
@@ -84,23 +84,25 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 		
 	fill = NULL;
 	str = ft_itoa_base_ull(nbr);
-	data->len_variable = ((int)ft_strlen(str) + 2);
-	if (data->dot > (int)ft_strlen(str))
+	if (nbr == '\0' && data->b_dot == 1 && data->dot == 0)
 	{
-		fill = ft_add_fill(data);
-	//	printf("Ici valeur de fill : %s et data->len_fill : %d\n", fill, data->len_fill);
+		str[0] = '\0';
+		data->len_variable = 2;
 	}
+	data->len_variable = ((int)ft_strlen(str) + 2);
+	if (data->width < data->dot)
+		data->width = data->dot + 2;
+	if (data->dot > (int)ft_strlen(str))
+		fill = ft_add_fill(data);
 	space = ft_treat_width(data);
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, "0x", 2);
-		if (data->zero == 1)
+		if (data->zero == 1) 
 			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
-	//printf("valeur de space_len : %d et de len_fill : %d\n", data->len_space, data->len_fill);
-	//printf("********valeur de data->len_space : %d\n", data->len_space);
 	if (data->zero == 0 && data->len_space > 0)
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
@@ -108,13 +110,10 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 		ft_add_to_buffer(data, "0x", 2);
 		if (data->zero == 1)
 			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
-		//printf("valeur de data->len_fill : %d\n", data->len_fill);
 		ft_add_to_buffer(data, fill, data->len_fill);
-		//printf("valeur de data->len_variable : %d\n", data->len_variable);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
 	free(str);
 	free(space);
-	if (fill)
-		free(fill);
+	free(fill);
 }

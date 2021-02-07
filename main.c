@@ -109,5 +109,9 @@ int		main(void)
 	ft_printf("Faux : |%015p|\n", &str);
 	printf("Vrai : |%.20p|\n", &str);
 	ft_printf("Faux : |%.20p|\n", &str);
+	printf("Vrai : |%15.20p|\n", &str);
+	ft_printf("Faux : |%15.20p|\n", &str);
+	printf("Vrai : |%.p|\n", '\0');
+	ft_printf("Faux : |%.p|\n", '\0');
 	return 0;
 }
