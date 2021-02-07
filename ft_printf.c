@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 15:56:32 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 19:38:56 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_exec_flags(char type, t_data *data, va_list args)
 		ft_treat_char('%', data);
 	if (type == 'p')
 		ft_treat_pointer(va_arg(args, unsigned long long), data);
+	if (type == 'd' || type == 'i')
+		ft_treat_int(va_arg(args, int), data);
 }
 
 int		ft_parser(char *str, t_data *data, va_list args)

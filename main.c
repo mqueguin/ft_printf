@@ -87,7 +87,7 @@ int		main(void)
 	ft_printf("test %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	printf("Vrai : |%s|\n", "Coco Toto");
 	ft_printf("|%s|\n", "Coco Toto");*/
-	ft_printf("\n-------------- %%p ------------\n\n");
+	/*ft_printf("\n-------------- %%p ------------\n\n");
 	ft_printf("test %%p : %p\n", &str);
 	printf("test vrai printf %%p : %p\n", &str);
 	ft_printf("test %%p avec width de 16 : %16p\n", &str);
@@ -112,6 +112,29 @@ int		main(void)
 	printf("Vrai : |%15.20p|\n", &str);
 	ft_printf("Faux : |%15.20p|\n", &str);
 	printf("Vrai : |%.p|\n", '\0');
-	ft_printf("Faux : |%.p|\n", '\0');
+	ft_printf("Faux : |%.p|\n", '\0');*/
+	printf("\n----------------- %%i-d -----------\n\n");
+	printf("test vrai printf %%d : |%15d|\n", 2147483647);
+	ft_printf("test %%d : |%15d|\n", 2147483647);
+	printf("test vrai printf %%d : |%.20d|\n", 2147483647);
+	ft_printf("test %%d : |%.20d|\n", 2147483647);
+	printf("test vrai printf %%i : %i\n", -123476);
+	ft_printf("test %%i : %i\n", -123476);
+	printf("test vrai printf %%d avec width de 22 : %22d\n", 12345678);
+	ft_printf("test %%d avec width de 22 : %22d\n", 12345678);
+	printf("test vrai printf %%d avec precision 22.4 : %22.4d\n", 12345678);
+	ft_printf("test %%d avec precision 22.4 : %22.4d\n", 12345678);
+	printf("test vrai printf %%i avec precision |%22.12d|\n", 2147483647);
+	ft_printf("test %%i avec precision |%22.12d|\n", 2147483647);
+	printf("test vrai printf %%d avec precision 15.20 |%15.20d|\n", 2147483647);
+	ft_printf("test %%d avec precision 15.20 |%15.20d|\n", 2147483647);
+	printf("test vrai printf %%i : |%*d|\n", -15, 2147483647);
+	ft_printf("test %%d : |%*d|\n", -15, 2147483647);
+	printf("test vrai printf %%d : |%.0d|\n", 0);
+	ft_printf("test %%d : |%.0d|\n", 0);
+	printf("Test vrai printf %%d : |%.d|\n", 2147483647);
+	ft_printf("Test %%d : |%.d|\n", 2147483647);
+	printf("test vrai printf %%d precision 15.0 : |%15.0d|\n", 2147483647);
+	ft_printf("test %%d precision 15.0 : |%15.0d|\n", 2147483647);
 	return 0;
 }
