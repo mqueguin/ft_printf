@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 12:36:45 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 12:38:06 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ char	*ft_add_fill(t_data *data)
 
 	i = 0;
 	j = 0;
-	if (data->dot > data->len_variable)
+	if (data->dot > data->len_variable - 2)
 	{
-		i = data->dot - data->len_variable - 2;
+	//printf("Valeur de data->dot %d et de data->len_variable - 2 %d\n", data->dot, data->len_variable - 2);
+		i = data->dot - (data->len_variable - 2);
+		//printf("Valeur de i %d\n", i);
 		data->len_fill = i;
 		//fill = ft_calloc(i, sizeof(char));
 		if (!(fill = (char*)malloc(sizeof(char) * (i + 1))))
@@ -84,7 +86,10 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 	str = ft_itoa_base_ull(nbr);
 	data->len_variable = ((int)ft_strlen(str) + 2);
 	if (data->dot > (int)ft_strlen(str))
+	{
 		fill = ft_add_fill(data);
+	//	printf("Ici valeur de fill : %s et data->len_fill : %d\n", fill, data->len_fill);
+	}
 	space = ft_treat_width(data);
 	if (data->minus == 1)
 	{
@@ -92,7 +97,9 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
-	ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+	//printf("valeur de space_len : %d et de len_fill : %d\n", data->len_space, data->len_fill);
+	if (data->zero == 0)
+		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{
 		ft_add_to_buffer(data, "0x", 2);

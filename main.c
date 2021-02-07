@@ -92,16 +92,18 @@ int		main(void)
 	printf("test vrai printf %%p : %p\n", &str);
 	ft_printf("test %%p avec width de 16 : %16p\n", &str);
 	printf("test vrai printf %%p avec width de 16 : %16p\n", &str);
-	ft_printf("test %%p avec width de 8 : %8p\n", &str);
+	ft_printf("Faux test %%p avec width de 8 : %8p\n", &str);
 	printf("test vrai printf %%p avec width de 8 : %8p\n", &str);
-	ft_printf("test %%p avec * et width de 22 : %*p\n", 22, &str);
+	ft_printf("Faux test %%p avec * et width de 22 : %*p\n", 22, &str);
 	printf("test vrai printf %%p avec * et width de 22 : %*p\n", 22, &str);
 	printf("Vrai precision 22.4: |%22.4p|\n", &str);
-	ft_printf("Vrai precision 22.4: |%22.4p|\n", &str);
+	ft_printf("Faux precision 22.4: |%22.4p|\n", &str);
 	printf("Vrai precision 22.0: |%22.0p|\n", &str);
-	ft_printf("Vrai precision 22.0: |%22.0p|\n", &str);
+	ft_printf("Faux precision 22.0: |%22.0p|\n", &str);
 	printf("Vrai precision 22.20: |%22.20p|\n", &str);
-	ft_printf("Vrai precision 22.20: |%22.20p|\n", &str);
+	ft_printf("Faux precision 22.20: |%22.20p|\n", &str);
+	printf("Vrai : |%020.15p|\n", &str);
+	ft_printf("Faux : |%020.15p|\n", &str);
 	//printf("test vrai printf %%p |%*.*p|\n", &str);
 	return 0;
 }
