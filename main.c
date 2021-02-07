@@ -107,5 +107,7 @@ int		main(void)
 	//printf("test vrai printf %%p |%*.*p|\n", &str);
 	printf("Vrai : |%015p|\n", &str);
 	ft_printf("Faux : |%015p|\n", &str);
+	printf("Vrai : |%.20p|\n", &str);
+	ft_printf("Faux : |%.20p|\n", &str);
 	return 0;
 }

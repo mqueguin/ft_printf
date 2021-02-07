@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 12:40:37 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 15:47:10 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,6 @@ int				ft_check_type(char c)
 {
 	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
 			|| c == 'u' || c == 'x' || c == 'X' || c == '%');
-}
-
-int				ft_check_buffer(t_data *data)
-{
-	int	len;
-
-	len = 0;
-	write(1, data->buffer, (int)ft_strlen(data->buffer));
-	len = (int)ft_strlen(data->buffer);
-	ft_bzero(data->buffer, 1024);
-	return (len);
 }
 
 void			ft_display_buffer(t_data *data)
@@ -53,6 +42,7 @@ void			ft_add_to_buffer(t_data *data, char *str, int len)
 			ft_display_buffer(data);
 		i++;
 	}
+//	printf("Iciiiiiiiiiiiiivaleur de len : %d\n", len);
 	data->ret_len += len;
 }
 

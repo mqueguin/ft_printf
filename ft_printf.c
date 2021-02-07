@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 11:32:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 15:47:54 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ int		ft_printf(const char *format, ...)
 	va_end(args);
 	free((char*)str);
 	ft_display_buffer(&data);
+//	printf("Valeur de retour de printf : %d\n", data.ret_len);
 	return (data.ret_len);
 }

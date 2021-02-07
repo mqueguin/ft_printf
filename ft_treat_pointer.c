@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 12:49:52 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/07 15:46:43 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,17 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
 	//printf("valeur de space_len : %d et de len_fill : %d\n", data->len_space, data->len_fill);
-	if (data->zero == 0)
+	//printf("********valeur de data->len_space : %d\n", data->len_space);
+	if (data->zero == 0 && data->len_space > 0)
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{
 		ft_add_to_buffer(data, "0x", 2);
 		if (data->zero == 1)
 			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+		//printf("valeur de data->len_fill : %d\n", data->len_fill);
 		ft_add_to_buffer(data, fill, data->len_fill);
+		//printf("valeur de data->len_variable : %d\n", data->len_variable);
 		ft_add_to_buffer(data, str, data->len_variable - 2);
 	}
 	free(str);
