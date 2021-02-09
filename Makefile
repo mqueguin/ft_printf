@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/07 19:52:41 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/09 17:05:14 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS	 	=	ft_printf.c\
 				ft_strncat.c\
 				ft_c_to_str.c\
 				ft_treat_pointer.c\
-				ft_treat_int.c
+				ft_treat_int.c\
+				ft_treat_u_int.c
 
 NAME 		=	libftprintf.a
 

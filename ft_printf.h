@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/09 11:48:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 16:50:33 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		ft_get_len(unsigned long long);
 char	*ft_add_fill(t_data *data);
 
 void	ft_treat_int(int nbr, t_data *data);
+
+void	ft_treat_u_int(unsigned int nbr, t_data *data);
 
 void	ft_display_buffer(t_data *data);
 void	ft_add_to_buffer(t_data *data, char *str, int len);
