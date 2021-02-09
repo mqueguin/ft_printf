@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/09 11:17:55 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 11:44:37 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	ft_treat_int(int nbr, t_data *data)
 		else
 			ft_add_to_buffer(data, str, data->len_variable);
 	}
-	if (data->zero == 0 || (data->zero == 1 && nbr > 0))
-	ft_add_to_buffer(data, space, data->len_space);
+	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0))
+	ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{
 		//printf("Ici\n");
@@ -97,6 +97,7 @@ void	ft_treat_int(int nbr, t_data *data)
 		else
 			ft_add_to_buffer(data, str, data->len_variable);
 	}
+	free(fill);
 	free(str);
 	free(space);
 }

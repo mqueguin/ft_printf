@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:48:29 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 17:23:38 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 11:43:57 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ char	*ft_treat_width(t_data *data)
 	if (data->dot > 0 && data->type == 's')
 		data->len_variable = data->dot;
 	if (data->type == 'p' && data->b_dot == 1 && data->dot >= 0)
+		data->zero = 0;
+	else if (data->type == 'd' && data->b_dot == 1 && data->dot >= 0)
+		data->zero = 0;
+	else if (data->type == 'i' && data->b_dot == 1 && data->dot >= 0)
 		data->zero = 0;
 	if (data->width < data->len_variable)
 		return (NULL);
