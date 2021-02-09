@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/07 19:40:13 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 11:06:13 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	ft_treat_string(char *str, t_data *data);
 void	ft_treat_pointer(unsigned long long, t_data *data);
 char	*ft_itoa_base_ull(unsigned long long);
 int		ft_get_len(unsigned long long);
+
+char	*ft_add_fill(t_data *data);
 
 void	ft_treat_int(int nbr, t_data *data);
 
