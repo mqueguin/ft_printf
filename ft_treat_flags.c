@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/04 12:33:22 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:08:52 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_data	ft_is_dot(char *str, t_data *data, va_list args)
 {
 	data->b_dot = 1;
 	data->i++;
+	if (ft_check_type(str[data->i]))
+		data->dot_exist = 0;
 	if (str[data->i] == '*')
 	{
 		data->dot = va_arg(args, int);

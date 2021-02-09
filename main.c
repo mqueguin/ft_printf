@@ -138,5 +138,11 @@ int		main(void)
 	ft_printf("test %%d precision 15.0 : |%15.0d|\n", 2147483647);
 	printf("Vrai : |%d|\n", -2147483648);
 	ft_printf("Faux : |%d|\n", -2147483648);
+	printf("Vrai : |%-0*.*i|\n", 0, -6, 0);
+	ft_printf("Faux : |%-0*.*i|\n", 0, -6, 0);
+	printf("Vrai : |%.3i|\n", 0);
+	ft_printf("|%.3i|\n", 0);
+	printf("Vrai : |%.20d|\n", -2147483648);
+	ft_printf("Faux : |%.20d|\n", -2147483648);
 	return 0;
 }

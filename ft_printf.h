@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/09 11:06:13 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 11:48:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_data
 	int			len_variable;
 	int			len_space;
 	int			b_dot;
+	int			dot_exist;
 	int			len_fill;
 	char		buffer[1024];
 }				t_data;
