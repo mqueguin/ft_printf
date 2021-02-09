@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 19:30:13 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/09 09:31:43 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/09 10:05:43 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ static int		ft_number_size(long nb)
 	if (nb == 0)
 		return (1);
 	if (nb < 0)
-	{
-		len++;
 		nb *= -1;
-	}
 	while (nb > 0)
 	{
 		len++;
@@ -44,10 +41,7 @@ char			*ft_itoa(int n)
 		return (NULL);
 	result[len--] = '\0';
 	if (nb < 0)
-	{
-		result[0] = '-';
 		nb *= -1;
-	}
 	if (nb == 0)
 		result[len] = '0';
 	while (nb > 0)

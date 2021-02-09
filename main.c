@@ -136,5 +136,7 @@ int		main(void)
 	ft_printf("Test %%d : |%.d|\n", 2147483647);
 	printf("test vrai printf %%d precision 15.0 : |%15.0d|\n", 2147483647);
 	ft_printf("test %%d precision 15.0 : |%15.0d|\n", 2147483647);
+	printf("Vrai : |%d|\n", -2147483648);
+	ft_printf("Faux : |%d|\n", -2147483648);
 	return 0;
 }
