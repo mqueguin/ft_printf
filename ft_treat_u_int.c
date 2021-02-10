@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:50:54 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/10 10:48:56 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/10 10:58:46 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,11 @@ void	ft_treat_u_int(unsigned int nbr, t_data *data)
 	char	*space;
 	char	*fill;
 
+	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
+		data->len_variable = 0;
 	str = ft_uitoa(nbr);
+	if (data->dot >= 0 && data->b_dot == 1 && data->dot < (int)ft_strlen(str) && data->zero == 1)
+		data->zero = 0;
 	//printf("Valeur de str au debut de treat_u_int : %s\n", str);
 	data->len_variable = (int)ft_strlen(str);
 	space = ft_treat_width(data);
