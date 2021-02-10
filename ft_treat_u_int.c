@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:50:54 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/10 11:24:28 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:30:18 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static char		*ft_uitoa(unsigned int nbr)
 	unsigned long nb;
 
 	nb = nbr;
-	//printf("valeur de nb dans itoa : %lu\n", nb);
 	len = ft_get_size(nb);
 	if (!(res = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
@@ -63,9 +62,6 @@ char	*ft_fill_u(t_data *data, unsigned int nbr)
 	j = 0;
 	if (data->dot > data->len_variable)
 	{
-		//if (nbr == -2147483648)
-		//	i = data->dot - data->len_variable + 1;
-		//else
 			i = data->dot - data->len_variable;
 		data->len_fill = i;
 		if (!(fill = (char*)malloc(sizeof(char) * (i + 1))))
@@ -94,16 +90,9 @@ void	ft_treat_u_int(unsigned int nbr, t_data *data)
 	else
 		data->len_variable = (int)ft_strlen(str);
 	if (data->dot >= 0 && data->b_dot == 1 && data->dot < data->width  && data->zero == 1)
-	{
-	//	printf("Je passe ici\n");
 			data->zero = 0;
-	}
-	//printf("Valeur de str au debut de treat_u_int : %s\n", str);
-	//printf("Valeur de len_variable : %d\n", data->len_variable);
 	space = ft_treat_width(data);
-	//printf("Valeur de space : %s\n", space);
 	fill = ft_fill_u(data, nbr);
-	//printf("Valeur de fill : %s\n", fill);
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, fill, data->len_fill);
