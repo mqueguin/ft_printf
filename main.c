@@ -144,5 +144,8 @@ int		main(void)
 	ft_printf("|%.3i|\n", 0);
 	printf("Vrai : |%.20d|\n", -2147483648);
 	ft_printf("Faux : |%.20d|\n", -2147483648);
+	ft_printf("\n------------------ %%u ---------------------\n\n");
+	printf("Vrai : |%015u|\n", 2147483647);
+	ft_printf("Faux : |%015u|\n", 2147483647);
 	return 0;
 }

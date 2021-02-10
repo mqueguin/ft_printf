@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:50:54 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/10 10:17:33 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/10 10:48:56 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static char		*ft_uitoa(unsigned int nbr)
 	unsigned long nb;
 
 	nb = nbr;
+	//printf("valeur de nb dans itoa : %lu\n", nb);
 	len = ft_get_size(nb);
 	if (!(res = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
@@ -46,9 +47,8 @@ static char		*ft_uitoa(unsigned int nbr)
 		res[len] = '0';
 	while (nb > 0)
 	{
-		res[len] = (nb % 10) + 48;
+		res[len--] = (nb % 10) + 48;
 		nb /= 10;
-		len++;
 	}
 	return (res);
 }
@@ -87,6 +87,7 @@ void	ft_treat_u_int(unsigned int nbr, t_data *data)
 	char	*fill;
 
 	str = ft_uitoa(nbr);
+	//printf("Valeur de str au debut de treat_u_int : %s\n", str);
 	data->len_variable = (int)ft_strlen(str);
 	space = ft_treat_width(data);
 	fill = ft_fill_u(data, nbr);
