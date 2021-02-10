@@ -11,7 +11,7 @@ int		main(void)
 	ft_printf("test %% avec width de 15 : %15%\n");
 	printf("test vrai printf %% avec width de 15 et 0 : %015%\n");
 	ft_printf("test %% avec width de 15 et 0 : %015%\n");
-	ft_printf("Test ft_printf\n");
+	ft_printf("Test ft_printf\n");*/
 	printf("------------------ %%c -----------------\n\n");
 	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
