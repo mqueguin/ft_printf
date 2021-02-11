@@ -151,5 +151,8 @@ int		main(void)
 	ft_printf("Faux : |%0*.*u|\n", 15, 0, 2147483647);
 	printf("Vrai : |%0*.*u|\n", 15, 6, 0);
 	ft_printf("Faux : |%0*.*u|\n", 15, 6, 0);
+	ft_printf("\n----------------- %%xX -----------------------\n");
+	printf("vrai : |%*.22x|\n", 15, 2147483647);
+	ft_printf("Faux : |%*.22x|\n", 15, 2147483647);
 	return 0;
 }
