@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 11:00:30 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:25:52 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ char	*ft_fill(t_data *data, int nbr)
 	j = 0;
 	if (data->dot > data->len_variable)
 	{
-		if (nbr == -2147483648)
+		if (nbr == -2147483648 || nbr < 0)
 			i = data->dot - data->len_variable + 1;
+		//else if (data->b_dot == 1 && data->data_exist == 1)
+			//i = data->dot - 
 		else
 			i = data->dot - data->len_variable;
 		data->len_fill = i;
@@ -81,6 +83,7 @@ void	ft_treat_int(int nbr, t_data *data)
 		else
 			ft_add_to_buffer(data, str, data->len_variable);
 	}
+	//printf("valeur de space : |%s| valeur de fill : |%s|\n", space, fill);
 	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0))
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)

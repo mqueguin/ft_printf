@@ -12,11 +12,11 @@ int		main(void)
 	printf("test vrai printf %% avec width de 15 et 0 : %015%\n");
 	ft_printf("test %% avec width de 15 et 0 : %015%\n");
 	ft_printf("Test ft_printf\n");*/
-	printf("------------------ %%c -----------------\n\n");
+/*	printf("------------------ %%c -----------------\n\n");
 	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
 	printf("\nVrai : |%c|\n", c);
-	ft_printf("|%c|\n", c);
+	ft_printf("Faux : |%c|\n", c);
 	printf("|%-----5c|\n", -2147483648);
 	ft_printf("|%-----5c|\n", -2147483648);
 	printf("Vrai : |%15c|\n", c);
@@ -112,7 +112,7 @@ int		main(void)
 	printf("Vrai : |%15.20p|\n", &str);
 	ft_printf("Faux : |%15.20p|\n", &str);
 	printf("Vrai : |%.p|\n", '\0');
-	ft_printf("Faux : |%.p|\n", '\0');*/
+	ft_printf("Faux : |%.p|\n", '\0');
 	printf("\n----------------- %%i-d -----------\n\n");
 	printf("test vrai printf %%d : |%15d|\n", 2147483647);
 	ft_printf("test %%d : |%15d|\n", 2147483647);
@@ -143,7 +143,9 @@ int		main(void)
 	printf("Vrai : |%.3i|\n", 0);
 	ft_printf("|%.3i|\n", 0);
 	printf("Vrai : |%.20d|\n", -2147483648);
-	ft_printf("Faux : |%.20d|\n", -2147483648);
+	ft_printf("Faux : |%.20d|\n", -2147483648);*/
+	printf("Vrai : |%.6i|\n", -3);
+	ft_printf("Faux : |%.6i|\n", -3);
 	ft_printf("\n------------------ %%u ---------------------\n\n");
 	printf("Vrai : |%015u|\n", 2147483647);
 	ft_printf("Faux : |%015u|\n", 2147483647);
