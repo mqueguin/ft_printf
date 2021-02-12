@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int		main(void)
 {
@@ -156,5 +156,7 @@ int		main(void)
 	ft_printf("\n----------------- %%xX -----------------------\n");
 	printf("vrai : |%*.22x|\n", 15, 2147483647);
 	ft_printf("Faux : |%*.22x|\n", 15, 2147483647);
+	ft_printf("%");
+	ft_printf("\n%d", ft_printf("%"));
 	return 0;
 }

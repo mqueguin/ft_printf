@@ -6,11 +6,11 @@
 /*   By: mdupuis <mdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 12:05:03 by mdupuis           #+#    #+#             */
-/*   Updated: 2021/02/02 19:20:40 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:26:55 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 char	*ft_c_to_str(char c)
 {

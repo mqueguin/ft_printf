@@ -6,11 +6,11 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:48:29 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/09 11:48:23 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:29:49 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 char	*ft_treat_width(t_data *data)
 {

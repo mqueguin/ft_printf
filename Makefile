@@ -6,17 +6,17 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/11 09:56:47 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/11 14:26:21 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJ_DIR 	=	obj/
 
-SRC_DIR 	=
+SRC_DIR 	=	srcs/
 
 LIB_DIR 	=	libft/
 
-PRINTF_H	=	-I ft_printf.h
+PRINTF_H	=	-I includes/ft_printf.h
 
 LIBFT_H		= 	-I libft/libft.h
 
@@ -24,10 +24,8 @@ SRCS	 	=	ft_printf.c\
 				ft_treat_char.c\
 				ft_treat_string.c\
 				ft_printf_utils.c\
-				ft_printf_debug.c\
 				ft_treat_width.c\
 				ft_treat_flags.c\
-				ft_strncat.c\
 				ft_c_to_str.c\
 				ft_treat_pointer.c\
 				ft_treat_int.c\

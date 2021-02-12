@@ -6,14 +6,14 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 10:45:22 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:24:59 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -70,7 +70,6 @@ char	*ft_fill_u(t_data *data, unsigned int nbr);
 
 void	ft_treat_hexa(unsigned int nbr, t_data *data);
 char	*ft_tolower_str(char *str);
-
 
 void	ft_display_buffer(t_data *data);
 void	ft_add_to_buffer(t_data *data, char *str, int len);

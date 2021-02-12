@@ -6,11 +6,11 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:42:35 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/05 10:56:10 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:27:26 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_treat_char(char c, t_data *data)
 {
