@@ -6,9 +6,20 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/09 23:39:23 by mqueguin          #+#    #+#              #
-#    Updated: 2021/01/30 14:43:00 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/12 19:52:11 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+END		=	\x1b[0m
+BOLD	=	\x1b[1m
+UNDER	=	\x1b[4m
+RED		=	\x1b[31m
+GREEN	=	\x1b[32m
+YELLOW	=	\x1b[33m
+BLUE	=	\x1b[34m
+PURPLE	=	\x1b[35m
+CYAN	=	\x1b[36m
+WHITE	=	\x1b[37m
 
 SRCS		= 		ft_isalnum.c\
 					ft_isalpha.c\
@@ -72,7 +83,7 @@ CFLAGS		= -Wall -Wextra -Werror -I.
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-			ar rc ${NAME} ${OBJS}
+			@echo "$(BOLD)$(GREEN)[GOOD]$(END) ar rc ${NAME} ${OBJS}"
 
 bonus:		${NAME} ${OBJS} ${OBJS_BONUS}
 			ar rc ${NAME} ${OBJS} ${OBJS_BONUS}

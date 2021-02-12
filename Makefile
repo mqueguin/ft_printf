@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/12 19:40:02 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/12 19:47:52 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -78,7 +78,7 @@ $(OBJ): $(CFIND)
 		@$(MAKE) $(OFILE)
 
 $(OFILE):
-		@echo Create: $(@:obj/%=%)
+		@echo "$(BOLD)$(GREEN)[GOOD]$(END) Create: $(@:obj/%=%)"
 		@$(CC) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
 
 clean:
