@@ -6,11 +6,32 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:27:06 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:22:48 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+void	ft_transfer(t_data *data, char *str, va_list args)
+{
+	while (str[data->i])
+	{
+		ft_reset_flags(data);
+		if (!str)
+			break ;
+		else if (str[data->i] == '%' && str[data->i + 1])
+		{
+			data->i = ft_parser(str, data, args);
+			if (ft_check_type(str[data->i]))
+				ft_exec_flags((char)data->type, data, args);
+			else if (str[data->i])
+				ft_noflags_buffer(data, str);
+		}
+		else if (str[data->i] != '%' && str[data->i])
+			ft_noflags_buffer(data, str);
+		data->i++;
+	}
+}
 
 void	ft_reset_flags(t_data *data)
 {
@@ -83,26 +104,9 @@ int		ft_printf(const char *format, ...)
 	str = ft_strdup(format);
 	ft_bzero(data.buffer, 1024);
 	va_start(args, format);
-	while (str[data.i])
-	{
-		ft_reset_flags(&data);
-		if (!str)
-			break ;
-		else if (str[data.i] == '%' && str[data.i + 1])
-		{
-			data.i = ft_parser(str, &data, args);
-			if (ft_check_type(str[data.i]))
-				ft_exec_flags((char)data.type, &data, args);
-			else if (str[data.i])
-				ft_noflags_buffer(&data, str);
-		}
-		else if (str[data.i] != '%' && str[data.i])
-			ft_noflags_buffer(&data, str);
-		data.i++;
-	}
+	ft_transfer(&data, str, args);
 	va_end(args);
 	free((char*)str);
 	ft_display_buffer(&data);
-//	printf("Valeur de retour de printf : %d\n", data.ret_len);
 	return (data.ret_len);
 }

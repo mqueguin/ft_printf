@@ -6,11 +6,21 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:42:35 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:27:26 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:34:41 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+char	*ft_c_to_str(char c)
+{
+	char	*ret;
+
+	ret = ft_calloc(2, sizeof(char));
+	ret[0] = c;
+	ret[1] = '\0';
+	return (ret);
+}
 
 void	ft_treat_char(char c, t_data *data)
 {

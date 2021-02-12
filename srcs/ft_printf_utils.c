@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:27:16 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 14:26:32 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,14 @@ void			ft_add_to_buffer(t_data *data, char *str, int len)
 	int	i;
 
 	i = 0;
-	//printf("Valeur de len : %d\n", len);
 	while (i < len)
 	{
-	//	printf("Yo");
 		data->buffer[data->index] = str[i];
 		data->index++;
 		if (data->index == 1024)
 			ft_display_buffer(data);
 		i++;
 	}
-//	printf("Iciiiiiiiiiiiiivaleur de len : %d\n", len);
 	if (len < 0)
 		return ;
 	data->ret_len += len;
@@ -65,6 +62,5 @@ void			ft_noflags_buffer(t_data *data, char *str)
 		data->i++;
 	}
 	data->ret_len += len;
-	//printf("ret_len value : %d\n", data->ret_len);
 	data->i--;
 }

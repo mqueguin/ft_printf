@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:27:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:28:41 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:51:15 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,25 @@ static int	ft_get_size(unsigned long nbr)
 	return (len);
 }
 
+char		*ft_is_min_or_maj(char *hexa, t_data *data)
+{
+	if (data->type == 'x')
+		hexa = "0123456789abcdef";
+	else if (data->type == 'X')
+		hexa = "0123456789ABCDEF";
+	return (hexa);
+}
+
 static char	*ft_itoa_hexa(unsigned int nbr, t_data *data)
 {
-	unsigned long 	nb;
+	unsigned long	nb;
 	char			*res;
 	int				len;
-	char			*hexa_min;
 	char			*hexa;
 
 	nb = nbr;
 	len = ft_get_size(nb);
-	hexa = "0123456789ABCDEF";
-	hexa_min = "0123456789abcdef";
+	hexa = ft_is_min_or_maj(hexa, data);
 	if (!(res = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	res[len--] = '\0';
@@ -56,37 +63,40 @@ static char	*ft_itoa_hexa(unsigned int nbr, t_data *data)
 		res[len--] = '0';
 	while (nb > 0)
 	{
-		if (data->type == 'x')
-			res[len--] = hexa_min[nb % 16];
-		else
-			res[len--] = hexa[nb % 16];
+		res[len--] = hexa[nb % 16];
 		nb /= 16;
 	}
 	return (res);
 }
 
-void	ft_treat_hexa(unsigned int nbr, t_data *data)
+void		ft_special_cases(t_data *data, char *str, unsigned int nbr)
+{
+	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
+		data->len_variable = 0;
+	else if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 0
+			&& data->dot == 0)
+		data->len_variable = 0;
+	else
+		data->len_variable = (int)ft_strlen(str);
+	if (data->dot >= 0 && data->b_dot == 1 && data->dot < data->width
+			&& data->zero == 1)
+		data->zero = 0;
+}
+
+void		ft_treat_hexa(unsigned int nbr, t_data *data)
 {
 	char	*str;
 	char	*space;
 	char	*fill;
 
 	str = ft_itoa_hexa(nbr, data);
-	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
-		data->len_variable = 0;
-	else if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 0 && data->dot == 0)
-		data->len_variable = 0;
-	else
-		data->len_variable = (int)ft_strlen(str);
-	if (data->dot >= 0 && data->b_dot == 1 && data->dot < data->width  && data->zero == 1)
-			data->zero = 0;
+	ft_special_cases(data, str, nbr);
 	space = ft_treat_width(data);
 	fill = ft_fill_u(data, nbr);
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable);
-		
 	}
 	ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
