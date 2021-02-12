@@ -158,5 +158,7 @@ int		main(void)
 	ft_printf("Faux : |%*.22x|\n", 15, 2147483647);
 	ft_printf("%");
 	ft_printf("\n%d", ft_printf("%"));
+	printf("|%c|\n", 0);
+	ft_printf("|%c|\n", 0);
 	return 0;
 }

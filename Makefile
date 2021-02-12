@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/12 19:47:52 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/12 21:38:36 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -48,7 +48,7 @@ NAME 		=	libftprintf.a
 
 LIBFT_A 	=	libft.a
 
-CC			=	gcc  $(PRINTF_H) $(LIBFT_H) -c -o
+CC			=	gcc $(PRINTF_H) $(LIBFT_H) -c -o
 
 CFIND		=	$(SRCS:%=$(SRC_DIR)%)
 
@@ -59,11 +59,18 @@ OBJ			=		$(addprefix $(OBJ_DIR), $(OFILE))
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
+		@echo "\t\t\t\t########################################"
+		@echo "\t\t\t\t####                                ####"
+		@echo "\t\t\t\t####                                ####"
+		@echo "\t\t\t\t####            $(BOLD)$(CYAN)FT_PRINTF$(END)           ####"
+		@echo "\t\t\t\t####                                ####"
+		@echo "\t\t\t\t####                                ####"
+		@echo "\t\t\t\t########################################\n\n"
 		@mkdir -p $(OBJ_DIR)
-		@echo Create: ft_printf Object directory
+		@echo "$(BLUE)Create:$(END) ft_printf Object directory $(GREEN)$(BOLD)[OK]$(END)"
 
 $(NAME): $(OBJ)
-		@echo "\t\t$(BOLD)====================== $(GREEN)LIBFT START $(END)$(BOLD)====================$(END)\t\t"
+		@echo "\n\n\t\t$(BOLD)====================== $(GREEN)COMPILATION LIBFT... $(END)$(BOLD)====================$(END)\t\t\n\n"
 		@make -C $(LIB_DIR)
 		@echo Copying $(LIBFT_A) to root.
 		@cp $(LIB_DIR)$(LIBFT_A) .
@@ -72,7 +79,7 @@ $(NAME): $(OBJ)
 		@ranlib $(NAME)
 		@echo Merged: $(NAME) with $(LIBFT_A)
 		@cat text.txt
-		@echo "\033[33;32m\t\t\t\t\tFT_PRINTF COMPLETE"
+		@echo "$(BOLD)$(GREEN)\t\t\t\t\tFT_PRINTF COMPLETE"
 
 $(OBJ): $(CFIND)
 		@$(MAKE) $(OFILE)

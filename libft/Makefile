@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/09 23:39:23 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/12 19:52:11 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/12 21:29:54 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ CFLAGS		= -Wall -Wextra -Werror -I.
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-			@echo "$(BOLD)$(GREEN)[GOOD]$(END) ar rc ${NAME} ${OBJS}"
+			ar rc ${NAME} ${OBJS}
 
 bonus:		${NAME} ${OBJS} ${OBJS_BONUS}
 			ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
