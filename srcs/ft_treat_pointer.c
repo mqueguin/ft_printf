@@ -6,50 +6,13 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:52:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:29:08 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 18:43:24 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_get_len(unsigned long long nbr)
-{
-	int		len;
-
-	len = 0;
-	if (nbr == 0)
-		return (0);
-	while (nbr)
-	{
-		len++;
-		nbr /= 16;
-	}
-	return (len);
-}
-
-char	*ft_itoa_base_ull(unsigned long long nbr)
-{
-	char	*hexa;
-	int		len;
-	char	*ret;
-	
-	len = ft_get_len(nbr);
-	hexa = "0123456789abcdef";
-	if (!(ret = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	ret[len] = '\0';
-	len--;
-	if (nbr == 0)
-		ret[0] = '0';
-	while (nbr != 0)
-	{
-		ret[len--] = hexa[nbr % 16];
-		nbr /= 16;
-	}
-	return (ret);
-}
-
-char	*ft_add_fill(t_data *data)
+char		*ft_add_fill(t_data *data)
 {
 	int		i;
 	int		j;
@@ -59,11 +22,8 @@ char	*ft_add_fill(t_data *data)
 	j = 0;
 	if (data->dot > data->len_variable - 2)
 	{
-	//printf("Valeur de data->dot %d et de data->len_variable - 2 %d\n", data->dot, data->len_variable - 2);
 		i = data->dot - (data->len_variable - 2);
-		//printf("Valeur de i %d\n", i);
 		data->len_fill = i;
-		//fill = ft_calloc(i, sizeof(char));
 		if (!(fill = (char*)malloc(sizeof(char) * (i + 1))))
 			return (NULL);
 		ft_bzero(fill, i + 1);
@@ -75,15 +35,9 @@ char	*ft_add_fill(t_data *data)
 	else
 		return (NULL);
 }
-//            FONCTION DE MERDE........
-void	ft_treat_pointer(unsigned long long nbr, t_data *data)
+
+static void	ft_special_cases(unsigned long long nbr, t_data *data, char *str)
 {
-	char	*str;
-	char	*space;
-	char	*fill;
-		
-	fill = NULL;
-	str = ft_itoa_base_ull(nbr);
 	if (nbr == '\0' && data->b_dot == 1 && data->dot == 0)
 	{
 		str[0] = '\0';
@@ -92,27 +46,35 @@ void	ft_treat_pointer(unsigned long long nbr, t_data *data)
 	data->len_variable = ((int)ft_strlen(str) + 2);
 	if (data->width < data->dot)
 		data->width = data->dot + 2;
+}
+
+static void	ft_treat_minus(t_data *data, char *str, char *space, char *fill)
+{
+	ft_add_to_buffer(data, "0x", 2);
+	if (data->zero == 1)
+		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+	ft_add_to_buffer(data, fill, data->len_fill);
+	ft_add_to_buffer(data, str, data->len_variable - 2);
+}
+
+void		ft_treat_pointer(unsigned long long nbr, t_data *data)
+{
+	char	*str;
+	char	*space;
+	char	*fill;
+
+	fill = NULL;
+	str = ft_itoa_base_ull(nbr);
+	ft_special_cases(nbr, data, str);
 	if (data->dot > (int)ft_strlen(str))
 		fill = ft_add_fill(data);
 	space = ft_treat_width(data);
 	if (data->minus == 1)
-	{
-		ft_add_to_buffer(data, "0x", 2);
-		if (data->zero == 1) 
-			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
-		ft_add_to_buffer(data, fill, data->len_fill);
-		ft_add_to_buffer(data, str, data->len_variable - 2);
-	}
+		ft_treat_minus(data, str, space, fill);
 	if (data->zero == 0 && data->len_space > 0)
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
-	{
-		ft_add_to_buffer(data, "0x", 2);
-		if (data->zero == 1)
-			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
-		ft_add_to_buffer(data, fill, data->len_fill);
-		ft_add_to_buffer(data, str, data->len_variable - 2);
-	}
+		ft_treat_minus(data, str, space, fill);
 	free(str);
 	free(space);
 	free(fill);

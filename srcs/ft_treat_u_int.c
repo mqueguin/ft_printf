@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:50:54 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:29:37 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 17:38:14 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int		ft_get_size(unsigned long nb)
 
 static char		*ft_uitoa(unsigned int nbr)
 {
-	char	*res;
-	int		len;
-	unsigned long nb;
+	char			*res;
+	int				len;
+	unsigned long	nb;
 
 	nb = nbr;
 	len = ft_get_size(nb);
@@ -52,7 +52,7 @@ static char		*ft_uitoa(unsigned int nbr)
 	return (res);
 }
 
-char	*ft_fill_u(t_data *data, unsigned int nbr)
+char			*ft_fill_u(t_data *data, unsigned int nbr)
 {
 	char	*fill;
 	int		i;
@@ -62,7 +62,7 @@ char	*ft_fill_u(t_data *data, unsigned int nbr)
 	j = 0;
 	if (data->dot > data->len_variable)
 	{
-			i = data->dot - data->len_variable;
+		i = data->dot - data->len_variable;
 		data->len_fill = i;
 		if (!(fill = (char*)malloc(sizeof(char) * (i + 1))))
 			return (NULL);
@@ -76,21 +76,29 @@ char	*ft_fill_u(t_data *data, unsigned int nbr)
 		return (NULL);
 }
 
-void	ft_treat_u_int(unsigned int nbr, t_data *data)
+static void		ft_special_cases(unsigned int nbr, t_data *data, char *str)
+{
+	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1
+			&& data->dot == 0)
+		data->len_variable = 0;
+	else if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 0
+			&& data->dot == 0)
+		data->len_variable = 0;
+	else
+		data->len_variable = (int)ft_strlen(str);
+	if (data->dot >= 0 && data->b_dot == 1 && data->dot < data->width
+			&& data->zero == 1)
+		data->zero = 0;
+}
+
+void			ft_treat_u_int(unsigned int nbr, t_data *data)
 {
 	char	*str;
 	char	*space;
 	char	*fill;
 
 	str = ft_uitoa(nbr);
-	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
-		data->len_variable = 0;
-	else if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 0 && data->dot == 0)
-		data->len_variable = 0;
-	else
-		data->len_variable = (int)ft_strlen(str);
-	if (data->dot >= 0 && data->b_dot == 1 && data->dot < data->width  && data->zero == 1)
-			data->zero = 0;
+	ft_special_cases(nbr, data, str);
 	space = ft_treat_width(data);
 	fill = ft_fill_u(data, nbr);
 	if (data->minus == 1)

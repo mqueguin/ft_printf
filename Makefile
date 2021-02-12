@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/12 13:39:49 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/12 18:42:37 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS	 	=	ft_printf.c\
 				ft_treat_width.c\
 				ft_treat_flags.c\
 				ft_treat_pointer.c\
+				ft_itoa_base_ull.c\
 				ft_treat_int.c\
 				ft_treat_u_int.c\
 				ft_treat_hexa.c

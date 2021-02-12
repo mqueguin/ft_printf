@@ -6,13 +6,13 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/11 14:28:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/12 18:18:11 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	*ft_fill(t_data *data, int nbr)
+static char	*ft_fill(t_data *data, int nbr)
 {
 	char	*fill;
 	int		i;
@@ -24,8 +24,6 @@ char	*ft_fill(t_data *data, int nbr)
 	{
 		if (nbr == -2147483648 || nbr < 0)
 			i = data->dot - data->len_variable + 1;
-		//else if (data->b_dot == 1 && data->data_exist == 1)
-			//i = data->dot - 
 		else
 			i = data->dot - data->len_variable;
 		data->len_fill = i;
@@ -41,15 +39,10 @@ char	*ft_fill(t_data *data, int nbr)
 		return (NULL);
 }
 
-void	ft_treat_int(int nbr, t_data *data)
+static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 {
-	char	*str;
-	char	*space;
-	char	*fill;
-
-	fill = NULL;
-	str = ft_itoa(nbr);
-	if (nbr == 0 && data->b_dot == 1 && data->dot == 0 && data->dot_exist == 0)
+	if (nbr == 0 && data->b_dot == 1 && data->dot == 0
+			&& data->dot_exist == 0)
 		data->len_variable = 0;
 	else if (nbr < 0)
 		data->len_variable = (int)ft_strlen(str) + 1;
@@ -57,7 +50,8 @@ void	ft_treat_int(int nbr, t_data *data)
 		data->len_variable = (int)ft_strlen(str);
 	else if (nbr == 0 && data->b_dot == 0)
 		data->len_variable = 1;
-	else if (nbr == 0 && data->b_dot == 1 && data->dot < 0 && data->dot_exist == 1)
+	else if (nbr == 0 && data->b_dot == 1 && data->dot < 0
+			&& data->dot_exist == 1)
 		data->len_variable = 1;
 	if (data->width < data->dot)
 	{
@@ -68,37 +62,50 @@ void	ft_treat_int(int nbr, t_data *data)
 	}
 	if (data->dot > (int)ft_strlen(str))
 		fill = ft_fill(data, nbr);
+}
+
+static void	ft_treat_minus_first(int nbr, t_data *data, char *space)
+{
+	if (nbr < 0)
+	{
+		ft_add_to_buffer(data, "-", 1);
+		if (data->zero == 1)
+			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+	}
+}
+
+static void	ft_treat_minus_second(int nbr, t_data *data, char *str, char *fill)
+{
+	ft_add_to_buffer(data, fill, data->len_fill);
+	if (nbr < 0)
+		ft_add_to_buffer(data, str, data->len_variable - 1);
+	else
+		ft_add_to_buffer(data, str, data->len_variable);
+}
+
+void		ft_treat_int(int nbr, t_data *data)
+{
+	char	*str;
+	char	*space;
+	char	*fill;
+
+	fill = NULL;
+	str = ft_itoa(nbr);
+	ft_special_cases(nbr, data, str, fill);
+	if (data->dot > (int)ft_strlen(str))
+		fill = ft_fill(data, nbr);
 	space = ft_treat_width(data);
 	if (data->minus == 1)
 	{
-		if (nbr < 0)
-		{
-			ft_add_to_buffer(data, "-", 1);
-			if (data->zero == 1)
-				ft_add_to_buffer(data, space, data->len_space - data->len_fill);
-		}
-		ft_add_to_buffer(data, fill, data->len_fill);
-		if (nbr < 0)
-			ft_add_to_buffer(data, str, data->len_variable - 1);
-		else
-			ft_add_to_buffer(data, str, data->len_variable);
+		ft_treat_minus_first(nbr, data, space);
+		ft_treat_minus_second(nbr, data, str, fill);
 	}
-	//printf("valeur de space : |%s| valeur de fill : |%s|\n", space, fill);
 	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0))
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{
-		if (nbr < 0)
-		{
-			ft_add_to_buffer(data, "-", 1);
-			if (data->zero == 1)
-				ft_add_to_buffer(data, space, data->len_space - data->len_fill);
-		}
-		ft_add_to_buffer(data, fill, data->len_fill);
-		if (nbr < 0)
-			ft_add_to_buffer(data, str, data->len_variable - 1);
-		else
-			ft_add_to_buffer(data, str, data->len_variable);
+		ft_treat_minus_first(nbr, data, space);
+		ft_treat_minus_second(nbr, data, str, fill);
 	}
 	free(fill);
 	free(str);
