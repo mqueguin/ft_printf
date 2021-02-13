@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/12 17:38:42 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/13 17:38:12 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,5 @@ void	ft_add_to_buffer(t_data *data, char *str, int len);
 void	ft_noflags_buffer(t_data *data, char *str);
 char	*ft_c_to_str(char c);
 char	*ft_strncat(char *dest, char *src, unsigned int n);
-
-/** Fonction debug **/
-void	printf_struct(t_data data);
 
 #endif

@@ -6,13 +6,13 @@ int		main(void)
 	char c = 'm';
 	char *str = "Hello World !";
 	char	*test = NULL;
-/*	ft_printf("\n-------------- %% --------------\n\n");
+	ft_printf("\n-------------- %% --------------\n\n");
 	printf("test vrai printf %% avec width de 15 : %15%\n");
 	ft_printf("test %% avec width de 15 : %15%\n");
 	printf("test vrai printf %% avec width de 15 et 0 : %015%\n");
 	ft_printf("test %% avec width de 15 et 0 : %015%\n");
-	ft_printf("Test ft_printf\n");*/
-/*	printf("------------------ %%c -----------------\n\n");
+	ft_printf("Test ft_printf\n");
+	printf("------------------ %%c -----------------\n\n");
 	printf("Vrai : |%c|\n", c);
 	ft_printf("|%c|\n", c);
 	printf("\nVrai : |%c|\n", c);
@@ -51,7 +51,7 @@ int		main(void)
 	ft_printf("|%-15c|\n", 0);
 	printf("|%0*c|\n", -15, -2147483648);
 	ft_printf("|%0*c|\n", -15, -2147483648);
-/*	printf("\n---------------- %%s -----------------\n\n");
+	printf("\n---------------- %%s -----------------\n\n");
 	printf("test vrai printf %%s sans flags : |%s|\n", str);
 	ft_printf("Test %%s sans flags : |%s|\n", str);
 	printf("Test vrai printf %%s avec width de 1 : |%1s|\n", str);
@@ -86,8 +86,8 @@ int		main(void)
 	printf("test vrai printf %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	ft_printf("test %%s avec precision de 22.4 et 0 : %022.4s\n", str);
 	printf("Vrai : |%s|\n", "Coco Toto");
-	ft_printf("|%s|\n", "Coco Toto");*/
-	/*ft_printf("\n-------------- %%p ------------\n\n");
+	ft_printf("|%s|\n", "Coco Toto");
+	ft_printf("\n-------------- %%p ------------\n\n");
 	ft_printf("test %%p : %p\n", &str);
 	printf("test vrai printf %%p : %p\n", &str);
 	ft_printf("test %%p avec width de 16 : %16p\n", &str);
@@ -143,7 +143,7 @@ int		main(void)
 	printf("Vrai : |%.3i|\n", 0);
 	ft_printf("|%.3i|\n", 0);
 	printf("Vrai : |%.20d|\n", -2147483648);
-	ft_printf("Faux : |%.20d|\n", -2147483648);*/
+	ft_printf("Faux : |%.20d|\n", -2147483648);
 	printf("Vrai : |%.6i|\n", -3);
 	ft_printf("Faux : |%.6i|\n", -3);
 	ft_printf("\n------------------ %%u ---------------------\n\n");
