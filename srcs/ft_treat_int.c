@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/13 18:20:29 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/13 19:01:27 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_fill(t_data *data, int nbr)
 
 	i = 0;
 	j = 0;
-	if (data->dot > data->len_variable)
+	if (data->dot > data->len_variable - 1)
 	{
 		if (nbr == -2147483648 || nbr < 0)
 			i = data->dot - data->len_variable + 1;
@@ -32,6 +32,7 @@ static char	*ft_fill(t_data *data, int nbr)
 		ft_bzero(fill, i + 1);
 		while (i-- > 0)
 			fill[j++] = '0';
+		fill[j] = '\0';
 		return (fill);
 	}
 	else

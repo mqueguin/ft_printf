@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "../includes/ft_printf.h"
+#include <limits.h>
+
 
 int		main(void)
 {
@@ -160,5 +162,9 @@ int		main(void)
 	ft_printf("\n%d", ft_printf("%"));
 	printf("|%c|\n", 0);
 	ft_printf("|%c|\n", 0);
+
+	ft_printf("\n\n--------------- Cas qui ne marchent pas encore... ---------------------------\n\n");
+	printf("Vrai flags %%9.2: |%9.2d|\n", UINT_MAX);
+	ft_printf("Faux flags %%9.2: |%9.2d|\n", UINT_MAX);
 	return 0;
 }
