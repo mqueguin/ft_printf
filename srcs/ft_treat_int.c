@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/13 18:12:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/13 18:20:29 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 		else if (nbr > 0)
 			data->width = data->dot;
 	}
-	if (data->dot > (int)ft_strlen(str))
-		fill = ft_fill(data, nbr);
 }
 
 static void	ft_treat_minus_first(int nbr, t_data *data, char *space)
