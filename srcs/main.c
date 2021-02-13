@@ -166,5 +166,7 @@ int		main(void)
 	ft_printf("\n\n--------------- Cas qui ne marchent pas encore... ---------------------------\n\n");
 	printf("Vrai flags %%9.2: |%9.2d|\n", UINT_MAX);
 	ft_printf("Faux flags %%9.2: |%9.2d|\n", UINT_MAX);
+	printf("Vrai : %%09.1: |%09.1d|\n", UINT_MAX + 1);
+	ft_printf("Faux %%09.1: |%09.1d|\n", UINT_MAX + 1);
 	return 0;
 }
