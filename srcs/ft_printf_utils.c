@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/12 14:26:32 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 17:25:21 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int				ft_check_flags(char c)
 {
-	return (c == '.' || c == '0' || c == '-' || c == '*');
+	return (c == '.' || c == '0' || c == '-' || c == '*' || c == '+'
+			|| c == ' ');
 }
 
 int				ft_check_type(char c)

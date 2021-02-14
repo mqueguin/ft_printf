@@ -168,5 +168,14 @@ int		main(void)
 	ft_printf("Faux flags %%9.2: |%9.2d|\n", UINT_MAX);
 	printf("Vrai : %%09.1: |%09.1d|\n", UINT_MAX + 1);
 	ft_printf("Faux %%09.1: |%09.1d|\n", UINT_MAX + 1);
+	ft_printf("\n\n------------------- Bonus ------------------------------------\n\n");
+	printf("Vrai %% u : |% u|\n", 12);
+	ft_printf("Faux %% u : |% u|\n", 12);
+	printf("Vrai %%+u : |%+u|\n", 4765);
+	ft_printf("Faux %%+u : |%+u|\n", 4765);
+	printf("Vrai %% d : |% d|\n", 4765);
+	ft_printf("Faux %% d : |% d|\n", 4765);
+	printf("Vrai : %%+020d |%+020d|\n", 2147483647);
+	ft_printf("Faux : %%+020d : |%+020d|\n", 2147483647);
 	return 0;
 }

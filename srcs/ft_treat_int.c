@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/13 19:20:32 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 18:15:54 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_fill(t_data *data, int nbr)
 	j = 0;
 	if (data->dot > data->len_variable - 1)
 	{
-		if (nbr == -2147483648 || nbr < 0)
+		if (nbr == -2147483648 || nbr < 0 || (nbr >= 0 && data->plus == 1))
 			i = data->dot - data->len_variable + 1;
 		else
 			i = data->dot - data->len_variable;
@@ -44,6 +44,11 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 	if (nbr == 0 && data->b_dot == 1 && data->dot == 0
 			&& data->dot_exist == 0)
 		data->len_variable = 0;
+	else if (nbr >= 0 && data->space == 1 && data->b_dot == 0 && data->width == 0)
+	{
+		data->len_variable = (int)ft_strlen(str);
+		data->width = ((int)ft_strlen(str) + 1);
+	}
 	else if (nbr < 0)
 		data->len_variable = (int)ft_strlen(str) + 1;
 	else if (nbr > 0)
@@ -57,7 +62,7 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 		data->len_variable = 1;
 	if (data->width < data->dot)
 	{
-		if (nbr < 0)
+		if (nbr < 0 || (nbr >= 0 && data->plus == 1))
 			data->width = data->dot + 1;
 		else if (nbr > 0)
 			data->width = data->dot;
@@ -66,9 +71,12 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 
 static void	ft_treat_minus_first(int nbr, t_data *data, char *space)
 {
-	if (nbr < 0)
+	if (nbr < 0 || (nbr >= 0 && data->plus == 1))
 	{
-		ft_add_to_buffer(data, "-", 1);
+		if (data->plus == 0)
+			ft_add_to_buffer(data, "-", 1);
+		else if (data->plus == 1)
+			ft_add_to_buffer(data, "+", 1);
 		if (data->zero == 1)
 			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	}
@@ -77,7 +85,7 @@ static void	ft_treat_minus_first(int nbr, t_data *data, char *space)
 static void	ft_treat_minus_second(int nbr, t_data *data, char *str, char *fill)
 {
 	ft_add_to_buffer(data, fill, data->len_fill);
-	if (nbr < 0)
+	if (nbr < 0 || (nbr >= 0 && data->plus == 1))
 		ft_add_to_buffer(data, str, data->len_variable - 1);
 	else
 		ft_add_to_buffer(data, str, data->len_variable);

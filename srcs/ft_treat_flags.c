@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/12 13:38:45 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 17:38:31 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,11 @@ t_data	ft_is_number(char c, t_data data)
 	if (ft_isdigit(c))
 		data.width = (data.width * 10) + (c - 48);
 	return (data);
+}
+
+void	ft_is_plus(t_data *data)
+{
+	if (data->space == 1)
+		data->space = 0;
+	data->plus = 1;
 }
