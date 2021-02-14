@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:27:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/12 15:51:15 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 12:30:49 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_get_size(unsigned long nbr)
 	return (len);
 }
 
-char		*ft_is_min_or_maj(char *hexa, t_data *data)
+static char	*ft_is_min_or_maj(char *hexa, t_data *data)
 {
 	if (data->type == 'x')
 		hexa = "0123456789abcdef";
@@ -69,7 +69,7 @@ static char	*ft_itoa_hexa(unsigned int nbr, t_data *data)
 	return (res);
 }
 
-void		ft_special_cases(t_data *data, char *str, unsigned int nbr)
+static void	ft_special_cases(t_data *data, char *str, unsigned int nbr)
 {
 	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
 		data->len_variable = 0;

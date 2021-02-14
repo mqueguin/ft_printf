@@ -6,13 +6,13 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:41:47 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/12 13:52:37 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 12:28:06 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_treat_minus(t_data *data, char *str, char *space)
+static void	ft_treat_minus(t_data *data, char *str, char *space)
 {
 	space = ft_treat_width(data);
 	if (data->minus == 1)
@@ -33,7 +33,7 @@ void	ft_treat_minus(t_data *data, char *str, char *space)
 	free(space);
 }
 
-void	ft_treat_string(char *str, t_data *data)
+void		ft_treat_string(char *str, t_data *data)
 {
 	char	*space;
 
