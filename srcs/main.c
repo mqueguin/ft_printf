@@ -177,5 +177,7 @@ int		main(void)
 	ft_printf("Faux %% d : |% d|\n", 4765);
 	printf("Vrai : %%+020d |%+020d|\n", 2147483647);
 	ft_printf("Faux : %%+020d : |%+020d|\n", 2147483647);
+	printf("Vrai : %%+20d : |%+20d|\n", -765);
+	ft_printf("Faux : %%+20d : |%+20d|\n", -765);
 	return 0;
 }
