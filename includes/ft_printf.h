@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/14 12:30:44 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 17:11:51 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct	s_data
 	int			zero;
 	int			dot;
 	int			width;
+	int			space;
+	int			plus;
 	int			index;
 	int			type;
 	int			i;
@@ -39,7 +41,7 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_printf(const char *format, ...);
-int				ft_parser(char *str, t_data *data, va_list args);
+void			ft_parser(char *str, t_data *data, va_list args);
 void			ft_exec_flags(char type, t_data *data, va_list args);
 void			ft_reset_flags(t_data *data);
 void			ft_transfer(t_data *data, char *str, va_list args);
