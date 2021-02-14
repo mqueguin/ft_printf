@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/14 18:46:22 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/14 19:15:18 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 		data->width = ((int)ft_strlen(str) + 1);
 	}
 	else if (nbr >= 0 && data->plus == 1)
-		data->len_variable = (int)ft_strlen(str) + 1;
+	{
+		if (data->dot == 0 && data->dot_exist == 1 && data->b_dot == 1)
+			data->len_variable = 1;
+		else
+			data->len_variable = (int)ft_strlen(str) + 1;
+	}
 	else if (nbr < 0 || (nbr >= 0 && data->plus == 1))
 		data->len_variable = (int)ft_strlen(str) + 1;
 	else if (nbr > 0)
@@ -110,7 +115,7 @@ void		ft_treat_int(int nbr, t_data *data)
 		ft_treat_minus_first(nbr, data, space);
 		ft_treat_minus_second(nbr, data, str, fill);
 	}
-	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0))
+	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0 && data->plus == 0))
 		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{

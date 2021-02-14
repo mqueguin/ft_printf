@@ -179,5 +179,9 @@ int		main(void)
 	ft_printf("Faux : %%+020d : |%+020d|\n", 2147483647);
 	printf("Vrai : %%+20d : |%+20d|\n", -765);
 	ft_printf("Faux : %%+20d : |%+20d|\n", -765);
+	printf("Vrai %%-0+*.*d 0 0 :|%-0+*.*d|\n", 0, 0, 0);
+	ft_printf("Faux %%-0+*.*d 0 0 : |%-0+*.*d|\n", 0, 0, 0);
+	printf("Vrai %%0 -15.6d : |%0 -15.6d|\n", 0);
+	ft_printf("Faux : %%0 -15.6d : |%0 -15.6d|\n", 0);
 	return 0;
 }
