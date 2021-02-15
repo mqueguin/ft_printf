@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/15 10:02:06 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/15 12:39:24 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -28,13 +28,11 @@ OBJ_DIR 	=	obj/
 
 SRC_DIR 	=	srcs/
 
-SRC_DIR_BONUS	=	srcs_bonus/
-
 LIB_DIR 	=	libft/
 
 PRINTF_H	=	-I includes/ft_printf.h
 
-PRINTF_BONUS_H	=	-I includes_srcs/ft_printf_bonus.h
+PRINTF_BONUS_H	=	-I includes_bonus/ft_printf_bonus.h
 
 LIBFT_H		= 	-I libft/libft.h
 
@@ -50,17 +48,17 @@ SRCS	 	=	ft_printf.c\
 				ft_treat_u_int.c\
 				ft_treat_hexa.c
 
-SRCS_BONUS	=	ft_printf_bonus.c\
-				ft_printf_utils_bonus.c\
-				ft_treat_flags_bonus.c\
-				ft_treat_width_bonus.c\
-				ft_treat_char_bonus.c\
-				ft_treat_string_bonus.c\
-				ft_treat_pointer_bonus.c\
-				ft_itoa_base_ull_bonus.c\
-				ft_treat_int_bonus.c\
-				ft_treat_u_int_bonus.c\
-				ft_treat_hexa_bonus.c
+SRCS_BONUS	=	srcs_bonus/ft_printf_bonus.c\
+				srcs_bonus/ft_printf_utils_bonus.c\
+				srcs_bonus/ft_treat_flags_bonus.c\
+				srcs_bonus/ft_treat_width_bonus.c\
+				srcs_bonus/ft_treat_char_bonus.c\
+				srcs_bonus/ft_treat_string_bonus.c\
+				srcs_bonus/ft_treat_pointer_bonus.c\
+				srcs_bonus/ft_itoa_base_ull_bonus.c\
+				srcs_bonus/ft_treat_int_bonus.c\
+				srcs_bonus/ft_treat_u_int_bonus.c\
+				srcs_bonus/ft_treat_hexa_bonus.c
 
 NAME 		=	libftprintf.a
 
@@ -68,15 +66,15 @@ LIBFT_A 	=	libft.a
 
 CC			=	gcc -Wall -Wextra -Werror $(PRINTF_H) $(LIBFT_H) -c -o
 
-CC_BONUS	=	gcc $(PRINTF_BONUS_H) $(LIBFT_H) -c -o
+CC_BONUS	=	gcc $(PRINTF_BONUS_H) $(LIBFT_H) -c
 
 CFIND		=	$(SRCS:%=$(SRC_DIR)%)
 
-OFILE		=		$(SRCS:%.c=%.o)
+OFILE		=	$(SRCS:%.c=%.o)
 
-OFILE_BONUS	=	$(SRCS_BONUS)
+OFILE_BONUS	=	$(SRCS_BONUS:%.c=%.o)
 
-OBJ			=		$(addprefix $(OBJ_DIR), $(OFILE))
+OBJ			=	$(addprefix $(OBJ_DIR), $(OFILE))
 
 all: $(OBJ_DIR) $(NAME)
 
@@ -112,11 +110,21 @@ $(OFILE):
 
 bonus:
 		@echo "Bonus Compilation..."
-		@make
+		@make -C $(LIB_DIR)
+		@$(CC_BONUS) srcs_bonus/*.c
+		@mv *.o srcs_bonus
+		@cp $(LIB_DIR)$(LIBFT_A) .
+		@mv $(LIBFT_A) $(NAME)
+		@ar rc $(NAME) $(OFILE_BONUS)
+		@ranlib $(NAME)
+		@echo "COMPLETE"
+
 
 clean:
 		@/bin/rm -rf $(OBJ_DIR)
+		@rm -rf srcs_bonus/*.o
 		@make -C $(LIB_DIR) clean
+
 		@echo "Cleaned ft_printf object files"
 
 fclean: clean
