@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 10:04:43 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 14:46:38 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_fill(t_data *data, int nbr)
 	j = 0;
 	if (data->dot > data->len_variable - 1)
 	{
-		if (nbr == -2147483648 || nbr < 0)
+		if (nbr < 0)
 			i = data->dot - data->len_variable + 1;
 		else
 			i = data->dot - data->len_variable;
@@ -68,8 +68,7 @@ static void	ft_treat_minus_first(int nbr, t_data *data, char *space)
 {
 	if (nbr < 0)
 	{
-		if (nbr < 0)
-			ft_add_to_buffer(data, "-", 1);
+		ft_add_to_buffer(data, "-", 1);
 		if (data->zero == 1)
 			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	}

@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/15 12:39:24 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/15 14:44:26 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -124,7 +124,6 @@ clean:
 		@/bin/rm -rf $(OBJ_DIR)
 		@rm -rf srcs_bonus/*.o
 		@make -C $(LIB_DIR) clean
-
 		@echo "Cleaned ft_printf object files"
 
 fclean: clean
