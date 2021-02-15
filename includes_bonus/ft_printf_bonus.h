@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 10:06:55 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:43:45 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
 
 # include "../libft/libft.h"
 # include <stdio.h>
@@ -65,7 +65,7 @@ int				ft_get_len(unsigned long long nbr);
 char			*ft_add_fill(t_data *data);
 void			ft_treat_int(int nbr, t_data *data);
 void			ft_treat_u_int(unsigned int nbr, t_data *data);
-char			*ft_fill_u(t_data *data);
+char			*ft_fill_u(t_data *data, unsigned int nbr);
 void			ft_treat_hexa(unsigned int nbr, t_data *data);
 
 #endif

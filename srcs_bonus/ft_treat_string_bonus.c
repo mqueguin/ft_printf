@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treat_string.c                                  :+:      :+:    :+:   */
+/*   ft_treat_string_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:41:47 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 10:02:56 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:50:47 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes_bonus/ft_printf_bonus.h"
 
 static void	ft_treat_minus(t_data *data, char *str, char *space)
 {
@@ -37,7 +37,6 @@ void		ft_treat_string(char *str, t_data *data)
 {
 	char	*space;
 
-	space = NULL;
 	if (!str)
 		str = "(null)";
 	if (data->b_dot == 1 && data->dot == 0)

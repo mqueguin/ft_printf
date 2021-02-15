@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:44:32 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:49:01 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes_bonus/ft_printf_bonus.h"
 
 void	ft_transfer(t_data *data, char *str, va_list args)
 {
@@ -40,6 +40,8 @@ void	ft_reset_flags(t_data *data)
 	data->zero = 0;
 	data->dot = 0;
 	data->width = 0;
+	data->space = 0;
+	data->plus = 0;
 	data->type = 0;
 	data->len_variable = 0;
 	data->len_space = 0;
@@ -81,6 +83,10 @@ void	ft_parser(char *str, t_data *data, va_list args)
 			*data = ft_is_star(*data, args);
 		if (str[data->i] == '.')
 			*data = ft_is_dot(str, data, args);
+		if (str[data->i] == ' ')
+			data->space = 1;
+		if (str[data->i] == '+')
+			ft_is_plus(data);
 		if (ft_isdigit(str[data->i]))
 			*data = ft_is_number(str[data->i], *data);
 		if (ft_check_type(str[data->i]))

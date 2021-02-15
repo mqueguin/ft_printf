@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:30:14 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:45:22 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:49:14 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes_bonus/ft_printf_bonus.h"
 
 int				ft_check_flags(char c)
 {
-	return (c == '.' || c == '0' || c == '-' || c == '*');
+	return (c == '.' || c == '0' || c == '-' || c == '*' || c == '+'
+			|| c == ' ');
 }
 
 int				ft_check_type(char c)

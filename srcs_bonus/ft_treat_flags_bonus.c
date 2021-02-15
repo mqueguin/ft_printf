@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treat_flags.c                                   :+:      :+:    :+:   */
+/*   ft_treat_flags_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:45:02 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:49:44 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes_bonus/ft_printf_bonus.h"
 
 t_data	ft_is_minus(t_data data)
 {
@@ -56,4 +56,11 @@ t_data	ft_is_number(char c, t_data data)
 	if (ft_isdigit(c))
 		data.width = (data.width * 10) + (c - 48);
 	return (data);
+}
+
+void	ft_is_plus(t_data *data)
+{
+	if (data->space == 1)
+		data->space = 0;
+	data->plus = 1;
 }

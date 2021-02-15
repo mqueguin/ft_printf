@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treat_hexa.c                                    :+:      :+:    :+:   */
+/*   ft_treat_hexa_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:27:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 10:09:48 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/15 09:49:56 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes_bonus/ft_printf_bonus.h"
 
 static int	ft_get_size(unsigned long nbr)
 {
@@ -49,7 +49,6 @@ static char	*ft_itoa_hexa(unsigned int nbr, t_data *data)
 	char			*hexa;
 
 	nb = nbr;
-	hexa = NULL;
 	len = ft_get_size(nb);
 	hexa = ft_is_min_or_maj(hexa, data);
 	if (!(res = (char*)malloc(sizeof(char) * (len + 1))))
@@ -90,11 +89,10 @@ void		ft_treat_hexa(unsigned int nbr, t_data *data)
 	char	*space;
 	char	*fill;
 
-	space = NULL;
 	str = ft_itoa_hexa(nbr, data);
 	ft_special_cases(data, str, nbr);
 	space = ft_treat_width(data);
-	fill = ft_fill_u(data);
+	fill = ft_fill_u(data, nbr);
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, fill, data->len_fill);
