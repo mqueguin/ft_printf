@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:45:02 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:42:48 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,16 @@ t_data	ft_is_dot(char *str, t_data *data, va_list args)
 	return (*data);
 }
 
-t_data	ft_is_number(char c, t_data data)
+t_data	ft_is_number(char c, char d, t_data data)
 {
-	if (data.star == 1)
+	if (data.width != 0 && !ft_isdigit(d))
 		data.width = 0;
-	if (ft_isdigit(c))
-		data.width = (data.width * 10) + (c - 48);
+	else
+	{
+		if (data.star == 1)
+			data.width = 0;
+		if (ft_isdigit(c))
+			data.width = (data.width * 10) + (c - 48);
+	}	
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 15:21:54 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 12:00:25 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ static void	ft_special_cases(int nbr, t_data *data, char *str, char *fill)
 	}
 	else if (nbr >= 0 && data->plus == 1)
 	{
-		//printf("Coucou\n");
-		if (data->dot == 0 && data->dot_exist == 1 && data->b_dot == 1)
-			data->len_variable = 1;
-		else if (data->dot == 0 && data->dot_exist == 0 && data->b_dot == 1)
+		if ((nbr == 0 && data->dot == 0 && data->dot_exist == 1 && data->b_dot == 1)
+				|| (nbr == 0 && data->dot == 0 && data->b_dot == 1 && data->dot_exist == 0))
 			data->len_variable = 1;
 		else
 			data->len_variable = (int)ft_strlen(str) + 1;
@@ -115,13 +113,22 @@ void		ft_treat_int(int nbr, t_data *data)
 	space = ft_treat_width(data);
 	if (data->minus == 1)
 	{
+		if (data->space == 1 && nbr >= 0)
+			ft_add_to_buffer(data, " ", 1);
 		ft_treat_minus_first(nbr, data, space);
 		ft_treat_minus_second(nbr, data, str, fill);
 	}
-	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0 && data->plus == 1))
+	if ((data->zero == 0) || (data->zero == 1 && nbr >= 0 && data->plus == 0))
 	{
-		//printf("Valeur de daata->len_space : %d et data->len_fill : %d et data->len_variable : %d\n", data->len_space, data->len_fill, data->len_variable);
-		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+		if (data->minus == 1 && data->space == 1 && nbr >= 0)
+			ft_add_to_buffer(data, space, data->len_space - (data->len_fill + 1));
+		else if (data->minus == 0 && data->space == 1 && nbr >= 0)
+		{
+			ft_add_to_buffer(data, " ", 1);
+			ft_add_to_buffer(data, space, data->len_space - (data->len_fill + 1));
+		}
+		else
+			ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	}
 	if (data->minus == 0)
 	{

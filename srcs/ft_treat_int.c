@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:39:04 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 14:46:38 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:43:52 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_special_cases(int nbr, t_data *data, char *str)
 	if (nbr == 0 && data->b_dot == 1 && data->dot == 0
 			&& data->dot_exist == 0)
 		data->len_variable = 0;
-	else if (nbr < 0 || (nbr >= 0 && data->plus == 1))
+	else if (nbr < 0)
 		data->len_variable = (int)ft_strlen(str) + 1;
 	else if (nbr > 0)
 		data->len_variable = (int)ft_strlen(str);

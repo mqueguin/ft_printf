@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/15 14:44:26 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/17 12:21:02 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -129,7 +129,7 @@ clean:
 fclean: clean
 		@/bin/rm -f $(NAME)
 		@make -C $(LIB_DIR) fclean
-		@cat text2.txt
+		#@cat text2.txt
 		@echo "$(BOLD)$(RED)\t\t\t-_-_-_-_-_-_-_-_-_-_ Cleaned $(NAME) _-_-_-_-_-_-_-_-_-_-$(END)"
 
 re: fclean all

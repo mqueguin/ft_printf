@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:43:45 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:54:46 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_data
 	int			width;
 	int			space;
 	int			plus;
+	int			sharp;
 	int			index;
 	int			type;
 	int			i;
@@ -53,7 +54,7 @@ void			ft_noflags_buffer(t_data *data, char *str);
 t_data			ft_is_minus(t_data data);
 t_data			ft_is_star(t_data data, va_list args);
 t_data			ft_is_dot(char *str, t_data *data, va_list args);
-t_data			ft_is_number(char c, t_data data);
+t_data			ft_is_number(char c, char d, t_data data);
 void			ft_is_plus(t_data *data);
 char			*ft_treat_width(t_data *data);
 void			ft_treat_char(char c, t_data *data);
@@ -64,6 +65,7 @@ char			*ft_itoa_base_ull(unsigned long long nbr);
 int				ft_get_len(unsigned long long nbr);
 char			*ft_add_fill(t_data *data);
 void			ft_treat_int(int nbr, t_data *data);
+void			ft_treat_space_plus(int nbr, t_data *data, char *str);
 void			ft_treat_u_int(unsigned int nbr, t_data *data);
 char			*ft_fill_u(t_data *data, unsigned int nbr);
 void			ft_treat_hexa(unsigned int nbr, t_data *data);

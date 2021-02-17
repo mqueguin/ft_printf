@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:49:01 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:55:31 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_reset_flags(t_data *data)
 	data->width = 0;
 	data->space = 0;
 	data->plus = 0;
+	data->sharp = 0;
 	data->type = 0;
 	data->len_variable = 0;
 	data->len_space = 0;
@@ -87,8 +88,10 @@ void	ft_parser(char *str, t_data *data, va_list args)
 			data->space = 1;
 		if (str[data->i] == '+')
 			ft_is_plus(data);
+		if (str[data->i] == '#')
+			data->sharp = 1;
 		if (ft_isdigit(str[data->i]))
-			*data = ft_is_number(str[data->i], *data);
+			*data = ft_is_number(str[data->i], str[data->i - 1], *data);
 		if (ft_check_type(str[data->i]))
 		{
 			data->type = str[data->i];

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 11:27:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/15 09:49:56 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:56:33 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static char	*ft_itoa_hexa(unsigned int nbr, t_data *data)
 
 static void	ft_special_cases(t_data *data, char *str, unsigned int nbr)
 {
+	if (nbr != 0 && data->sharp == 1)
+		data->len_variable = (int)ft_strlen(str) + 2;
 	if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 1 && data->dot == 0)
 		data->len_variable = 0;
 	else if (nbr == 0 && data->b_dot == 1 && data->dot_exist == 0
@@ -89,18 +91,37 @@ void		ft_treat_hexa(unsigned int nbr, t_data *data)
 	char	*space;
 	char	*fill;
 
+	//printf("data->sharp : %d\n", data->sharp);
+	//printf("COUCOU");
 	str = ft_itoa_hexa(nbr, data);
 	ft_special_cases(data, str, nbr);
 	space = ft_treat_width(data);
 	fill = ft_fill_u(data, nbr);
 	if (data->minus == 1)
 	{
+		if (nbr != 0 && data->sharp == 1)
+		{
+			if (data->type == 'x')
+				ft_add_to_buffer(data, "0x", 2);
+			else if (data->type == 'X')
+				ft_add_to_buffer(data, "0X", 2);
+		}
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable);
 	}
-	ft_add_to_buffer(data, space, data->len_space - data->len_fill);
+	if (nbr != 0 && data->sharp == 1)
+		ft_add_to_buffer(data, space, data->len_space - (data->len_fill + 2));
+	else
+		ft_add_to_buffer(data, space, data->len_space - data->len_fill);
 	if (data->minus == 0)
 	{
+		if (nbr != 0 && data->sharp == 1)
+		{
+			if (data->type == 'x')
+				ft_add_to_buffer(data, "0x", 2);
+			else if (data->type == 'X')
+				ft_add_to_buffer(data, "0X", 2);
+		}
 		ft_add_to_buffer(data, fill, data->len_fill);
 		ft_add_to_buffer(data, str, data->len_variable);
 	}
