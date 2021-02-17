@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/17 11:56:16 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/17 22:06:46 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,35 @@ t_data	ft_is_star(t_data data, va_list args)
 
 t_data	ft_is_dot(char *str, t_data *data, va_list args)
 {
-	data->b_dot = 1;
-	data->i++;
-	if (ft_check_type(str[data->i]))
-		data->dot_exist = 0;
-	if (str[data->i] == '*')
-	{
-		data->dot = va_arg(args, int);
-		data->star = 1;
-	}
+	if (data->dot != 0)
+		data->dot = 0;
 	else
-		while (ft_isdigit(str[data->i]))
-			data->dot = (data->dot * 10) + ((int)str[data->i++] - 48);
+	{
+		data->b_dot = 1;
+		data->i++;
+		if (ft_check_type(str[data->i]))
+			data->dot_exist = 0;
+		if (str[data->i] == '*')
+		{
+			data->dot = va_arg(args, int);
+			data->star = 1;
+		}
+		else
+			while (ft_isdigit(str[data->i]))
+				data->dot = (data->dot * 10) + ((int)str[data->i++] - 48);
+	}
+	if (str[data->i] == '.')
+		data->i--;
 	return (*data);
 }
 
 t_data	ft_is_number(char c, char d, t_data data)
 {
 	if (data.width != 0 && !ft_isdigit(d))
+	{
 		data.width = 0;
-	else
+	}
+	if (ft_isdigit(c))
 	{
 		if (data.star == 1)
 			data.width = 0;
