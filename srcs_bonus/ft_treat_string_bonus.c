@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:41:47 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/17 18:43:10 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:08:14 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		ft_treat_string(char *str, t_data *data)
 {
 	char	*space;
 
+	space = NULL;
 	if (!str)
 		str = "(null)";
 	if (data->b_dot == 1 && data->dot == 0)

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:50:54 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/17 12:00:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:08:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char		*ft_uitoa(unsigned int nbr)
 	return (res);
 }
 
-char			*ft_fill_u(t_data *data, unsigned int nbr)
+char			*ft_fill_u(t_data *data)
 {
 	char	*fill;
 	int		i;
@@ -100,7 +100,7 @@ void			ft_treat_u_int(unsigned int nbr, t_data *data)
 	str = ft_uitoa(nbr);
 	ft_special_cases(nbr, data, str);
 	space = ft_treat_width(data);
-	fill = ft_fill_u(data, nbr);
+	fill = ft_fill_u(data);
 	if (data->minus == 1)
 	{
 		ft_add_to_buffer(data, fill, data->len_fill);

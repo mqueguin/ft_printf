@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/17 11:54:46 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:09:09 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ char			*ft_itoa_base_ull(unsigned long long nbr);
 int				ft_get_len(unsigned long long nbr);
 char			*ft_add_fill(t_data *data);
 void			ft_treat_int(int nbr, t_data *data);
+void			ft_treat_int_second(int nbr, t_data *data, char *space);
+void			ft_treat_special_cases_int(int nbr, t_data *data, char *str);
 void			ft_treat_space_plus(int nbr, t_data *data, char *str);
 void			ft_treat_u_int(unsigned int nbr, t_data *data);
-char			*ft_fill_u(t_data *data, unsigned int nbr);
+char			*ft_fill_u(t_data *data);
 void			ft_treat_hexa(unsigned int nbr, t_data *data);
 
 #endif

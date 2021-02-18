@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/17 21:48:22 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/18 11:06:33 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -57,6 +57,7 @@ SRCS_BONUS	=	srcs_bonus/ft_printf_bonus.c\
 				srcs_bonus/ft_treat_pointer_bonus.c\
 				srcs_bonus/ft_itoa_base_ull_bonus.c\
 				srcs_bonus/ft_treat_int_bonus.c\
+				srcs_bonus/ft_treat_int_second_bonus.c\
 				srcs_bonus/ft_treat_u_int_bonus.c\
 				srcs_bonus/ft_treat_hexa_bonus.c
 
@@ -66,7 +67,7 @@ LIBFT_A 	=	libft.a
 
 CC			=	gcc -Wall -Wextra -Werror $(PRINTF_H) $(LIBFT_H) -c -o
 
-CC_BONUS	=	gcc $(PRINTF_BONUS_H) $(LIBFT_H) -c
+CC_BONUS	=	gcc -Wall -Wextra -Werror $(PRINTF_BONUS_H) $(LIBFT_H) -c
 
 CFIND		=	$(SRCS:%=$(SRC_DIR)%)
 
