@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/17 14:42:48 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:58:28 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ t_data	ft_is_number(char c, char d, t_data data)
 			data.width = 0;
 		if (ft_isdigit(c))
 			data.width = (data.width * 10) + (c - 48);
-	}	
+	}
 	return (data);
 }
