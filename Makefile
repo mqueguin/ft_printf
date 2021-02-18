@@ -6,12 +6,9 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/18 11:22:01 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/18 11:56:08 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-##############
-##  COLORS  ##
-##############
 END		=	\x1b[0m
 BOLD	=	\x1b[1m
 UNDER	=	\x1b[4m
@@ -80,13 +77,13 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(OFILE))
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
-		@echo "\t\t\t\t########################################"
+		@echo "$(GREEN)\t\t\t\t########################################"
 		@echo "\t\t\t\t####                                ####"
 		@echo "\t\t\t\t####                                ####"
-		@echo "\t\t\t\t####            $(BOLD)$(CYAN)FT_PRINTF$(END)           ####"
+		@echo "\t\t\t\t####            $(BOLD)$(CYAN)FT_PRINTF$(END)$(GREEN)           ####"
 		@echo "\t\t\t\t####                                ####"
 		@echo "\t\t\t\t####                                ####"
-		@echo "\t\t\t\t########################################\n\n"
+		@echo "\t\t\t\t########################################\n\n$(END)"
 		@mkdir -p $(OBJ_DIR)
 		@echo "$(BLUE)Create:$(END) ft_printf Object directory $(GREEN)$(BOLD)[OK]$(END)"
 
@@ -99,8 +96,7 @@ $(NAME): $(OBJ)
 		@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
 		@ranlib $(NAME)
 		@echo Merged: $(NAME) with $(LIBFT_A)
-		@cat text.txt
-		@echo "$(BOLD)$(GREEN)\t\t\t\t\tFT_PRINTF COMPLETE"
+		@echo "$(BOLD)$(GREEN)\n\t\t\t-------------------- FT_PRINTF COMPLETE --------------------"
 
 $(OBJ): $(CFIND)
 		@$(MAKE) $(OFILE)
@@ -110,7 +106,7 @@ $(OFILE):
 		@$(CC) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
 
 bonus:	
-		@echo "Bonus Compilation..."
+		@echo "$(BOLD)$(CYAN)\n\t\t\t-------------------- Bonus Compilation... --------------------$(END)"
 		@make -C $(LIB_DIR)
 		@$(CC_BONUS) srcs_bonus/*.c
 		@mv *.o srcs_bonus
@@ -118,7 +114,7 @@ bonus:
 		@mv $(LIBFT_A) $(NAME)
 		@ar rc $(NAME) $(OFILE_BONUS)
 		@ranlib $(NAME)
-		@echo "COMPLETE"
+		@echo "$(BOLD)$(GREEN)\n\t\t\t-------------------- BONUS COMPLETE --------------------$(END)"
 
 
 clean:
