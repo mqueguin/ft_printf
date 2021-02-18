@@ -6,7 +6,7 @@
 #    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 18:39:56 by mqueguin          #+#    #+#              #
-#    Updated: 2021/02/18 11:06:33 by mqueguin         ###   ########.fr        #
+#    Updated: 2021/02/18 11:22:01 by mqueguin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 ##############
@@ -109,7 +109,7 @@ $(OFILE):
 		@echo "$(BOLD)$(GREEN)[GOOD]$(END) Create: $(@:obj/%=%)"
 		@$(CC) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
 
-bonus:	fclean
+bonus:	
 		@echo "Bonus Compilation..."
 		@make -C $(LIB_DIR)
 		@$(CC_BONUS) srcs_bonus/*.c
