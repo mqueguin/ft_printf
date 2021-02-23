@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/18 09:44:56 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 15:45:06 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_parser(char *str, t_data *data, va_list args)
 			ft_is_plus(data);
 		((str[data->i] == '#') ? data->sharp = 1 : data->sharp);
 		if (ft_isdigit(str[data->i]))
-			*data = ft_is_number(str[data->i], str[data->i - 1], *data);
+			*data = ft_is_number(str[data->i], str[data->i - 1], *data, str);
 		if (ft_check_type(str[data->i]))
 		{
 			data->type = str[data->i];

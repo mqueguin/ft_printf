@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:22:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/18 11:16:36 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 15:45:29 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			ft_noflags_buffer(t_data *data, char *str);
 t_data			ft_is_minus(t_data data);
 t_data			ft_is_star(t_data data, va_list args);
 t_data			ft_is_dot(char *str, t_data *data, va_list args);
-t_data			ft_is_number(char c, char d, t_data data);
+t_data			ft_is_number(char c, char d, t_data data, char *str);
 void			ft_is_plus(t_data *data);
 char			*ft_treat_width(t_data *data);
 void			ft_treat_char(char c, t_data *data);

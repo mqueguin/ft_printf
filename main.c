@@ -185,5 +185,9 @@ int		main(void)
 	ft_printf("Faux : %%0 -15.6d : |%0 -15.6d|\n", 0);
 	printf("Vrai %%-0+15.d : |%-0+15.d|\n", 0);
 	ft_printf("Faux %%-0+15.d : |%-0+15.d|\n", 0);
+	printf("Test final : %15.16.1.12d\n", 12);
+	ft_printf("Test finAL : %15.16.1.12d\n", 12);
+	printf("Le caca c'est %0+10-.18.5-42s\n", "Poil de nez");
+	ft_printf("Le caca c'est %0+10-.18.5-42s\n", "Poil de nez");
 	return 0;
 }

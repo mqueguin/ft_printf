@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/19 13:19:43 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 11:48:05 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_data	ft_is_dot(char *str, t_data *data, va_list args)
 
 t_data	ft_is_number(char c, char d, t_data data)
 {
-	if (data.width != 0 && !ft_isdigit(d))
+	if ((data.width != 0 && !ft_isdigit(d)))
 		data.width = 0;
 	if (ft_isdigit(c))
 	{

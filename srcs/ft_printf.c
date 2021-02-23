@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/18 13:56:42 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 11:39:33 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_reset_flags(t_data *data)
 
 void	ft_exec_flags(char type, t_data *data, va_list args)
 {
+	printf("Valeur de data->width : %d\n", data->width);
 	if (type == 'c')
 		ft_treat_char(va_arg(args, int), data);
 	if (type == 's')
@@ -89,6 +90,8 @@ void	ft_parser(char *str, t_data *data, va_list args)
 			break ;
 		}
 	}
+	if (data->b_dot > 1)
+		data->type = 0;
 }
 
 int		ft_printf(const char *format, ...)
