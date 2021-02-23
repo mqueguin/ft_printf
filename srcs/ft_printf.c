@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:33:34 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/23 11:39:33 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 20:02:13 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_reset_flags(t_data *data)
 
 void	ft_exec_flags(char type, t_data *data, va_list args)
 {
-	printf("Valeur de data->width : %d\n", data->width);
 	if (type == 'c')
 		ft_treat_char(va_arg(args, int), data);
 	if (type == 's')
@@ -83,7 +82,7 @@ void	ft_parser(char *str, t_data *data, va_list args)
 		if (str[data->i] == '.')
 			*data = ft_is_dot(str, data, args);
 		if (ft_isdigit(str[data->i]))
-			*data = ft_is_number(str[data->i], str[data->i - 1], *data);
+			*data = ft_is_number(str[data->i], str[data->i - 1], *data, str);
 		if (ft_check_type(str[data->i]))
 		{
 			data->type = str[data->i];

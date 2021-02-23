@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/23 11:48:05 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 20:01:49 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ t_data	ft_is_star(t_data data, va_list args)
 t_data	ft_is_dot(char *str, t_data *data, va_list args)
 {
 	if (data->dot != 0)
+	{
 		data->dot = 0;
+		data->b_dot = 0;
+	}
 	else
 	{
 		data->b_dot = 1;
@@ -56,16 +59,30 @@ t_data	ft_is_dot(char *str, t_data *data, va_list args)
 	return (*data);
 }
 
-t_data	ft_is_number(char c, char d, t_data data)
+t_data	ft_is_number(char c, char d, t_data data, char *str)
 {
-	if ((data.width != 0 && !ft_isdigit(d)))
-		data.width = 0;
-	if (ft_isdigit(c))
+	int		tmp;
+
+	tmp = 0;
+	if (data.width != 0 && !ft_isdigit(d))
 	{
-		if (data.star == 1)
-			data.width = 0;
-		if (ft_isdigit(c))
-			data.width = (data.width * 10) + (c - 48);
+		if (d == '.')
+			return (data);
+		data.width = 0;
 	}
+	else if (data.width != 0)
+	{
+		tmp = data.i;
+		while (ft_isdigit(str[data.i]))
+			data.i--;
+		if (str[data.i] == '.')
+		{
+			data.i = tmp;
+			return (data);
+		}
+		data.i = tmp;
+	}
+	(data.star == 1) ? data.width = 0 : data.width;
+	data.width = (data.width * 10) + (c - 48);
 	return (data);
 }

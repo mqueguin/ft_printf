@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:23:33 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/02/23 15:53:36 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/02/23 20:00:06 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,12 @@ t_data	ft_is_number(char c, char d, t_data data, char *str)
 	{
 		if (d == '.')
 			return (data);
-		else
-			data.width = 0;
+		data.width = 0;
 	}
 	else if (data.width != 0)
 	{
 		tmp = data.i;
-		while (str[data.i] != '.' && str[data.i] != '%')
+		while (ft_isdigit(str[data.i]))
 			data.i--;
 		if (str[data.i] == '.')
 		{
@@ -83,13 +82,8 @@ t_data	ft_is_number(char c, char d, t_data data, char *str)
 		}
 		data.i = tmp;
 	}
-	if (ft_isdigit(c))
-	{
-		if (data.star == 1)
-			data.width = 0;
-		if (ft_isdigit(c))
-			data.width = (data.width * 10) + (c - 48);
-	}
+	(data.star == 1) ? data.width = 0 : data.width;
+	data.width = (data.width * 10) + (c - 48);
 	return (data);
 }
 
